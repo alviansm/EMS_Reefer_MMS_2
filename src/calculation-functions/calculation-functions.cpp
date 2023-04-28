@@ -32,3 +32,12 @@ void calculatePower() {
 void calculatePCM1PickLoad() {
   calculatedPCM1Pickload = "6"; // 6 hours by default
 }
+
+void ecoActivation() {
+  int sampelPCM1;
+  int sampelPCM2;
+  sampelPCM1 = senseTemperature1.toInt(); // change this later
+  sampelPCM2 = senseTemperature2.toInt();
+
+  
+}

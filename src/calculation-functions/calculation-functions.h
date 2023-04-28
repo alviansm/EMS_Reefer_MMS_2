@@ -2,6 +2,7 @@
 #define CALCULATION_FUNCTIONS
 
 #include <Arduino.h>
+#include "math.h"
 #include "variables/variables.h"
 #include "module-rtc/module-rtc.h"
 

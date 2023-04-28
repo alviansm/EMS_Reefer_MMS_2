@@ -26,5 +26,6 @@ void puttingThingsTogether() {
     loopHumiditySensor();
     loopCurrentSensor1();
     loopCurrentSensor2();
+    relayStandBy();
     writeMonitorSDCard();
 }
