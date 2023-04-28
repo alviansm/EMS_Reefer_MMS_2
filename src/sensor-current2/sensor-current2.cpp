@@ -4,7 +4,7 @@
 EnergyMonitor emon2;
 
 void setupCurrentSensor2() {
-    emon2.current(1, 100.11); 
+    emon2.current(8, 100.11); 
 }
 
 void loopCurrentSensor2() {

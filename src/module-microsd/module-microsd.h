@@ -5,9 +5,10 @@
 #include <SD.h>
 #include <Arduino.h>
 
-void setupMicrosd(); // setup()
-void randomizeFileName(); // setup()
-void writeHeaderSDCard(); // setup()
+void setupMicrosd();
+void randomizeFileName();
+void writeHeaderSDCard();
+void completeSDCardSetup(); // setup()
 void writeMonitorSDCard(); // loop()
 
 #endif

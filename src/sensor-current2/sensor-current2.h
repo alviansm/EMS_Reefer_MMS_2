@@ -1,5 +1,5 @@
-#ifndef SENSOR_CURRENT1
-#define SENSOR_CURRENT1
+#ifndef SENSOR_CURRENT2
+#define SENSOR_CURRENT2
 
 #include "EmonLib.h"
 

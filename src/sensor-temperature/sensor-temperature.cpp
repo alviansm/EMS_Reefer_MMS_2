@@ -45,8 +45,8 @@ void loopTemperatureSensors() {
     if(sensors.getAddress(tempDeviceAddress, i)){
     // Print the data
     float tempC = sensors.getTempC(tempDeviceAddress);
-    Serial.print(tempC);
-    Serial.print(","); 
+    // Serial.print(tempC);
+    // Serial.print(","); 
 
     // Assign to sensing temperature
     if (i == 0 ) {
@@ -75,6 +75,6 @@ void loopTemperatureSensors() {
     }
 
     }
-  Serial.println();
+  // Serial.println();
   }
 }

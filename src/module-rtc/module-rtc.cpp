@@ -1,5 +1,4 @@
 #include "module-rtc.h"
-#include "variables/variables.h"
 
 // ==== RTC DS1307 CONFIGURATION ====
 uRTCLib rtc(0x68);
@@ -13,6 +12,16 @@ String rtc_clock_minute = "";
 
 void setupRtc() {
     URTCLIB_WIRE.begin();
+}
+
+void calculateUptime() {
+  String previous_minute = "";
+
+  previous_minute = rtc_clock_minute;
+  rtc_clock_minute = rtc.minute();
+  if (rtc_clock_minute != previous_minute) {
+    calculatedUptime = calculatedUptime+1;
+  }  
 }
 
 void loopTime() {

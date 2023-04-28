@@ -3,5 +3,6 @@
 
 #include <Arduino.h>
 
+void setupRelay();
 
 #endif

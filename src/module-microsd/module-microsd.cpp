@@ -36,6 +36,8 @@ void writeHeaderSDCard() {
   delay(200);
   myFile = SD.open(SDCardFileName, FILE_WRITE);
   if (myFile) {
+    myFile.println("Time, SenseT1, SenseT2, SenseT3, SenseT4, SenseT5, SenseT6, SenseT7, SenseT8, SenseTH1, SenseRH, SenseCurrent1, SenseCurrent2, voltage, COP, Power, Uptime, PCM Freezing Point, Pickload"); // SD Card .CSV header row    
+
     myFile.close();
   } else {    
     Serial.print("Error opening ");
@@ -44,12 +46,60 @@ void writeHeaderSDCard() {
   }
 }
 
+void completeSDCardSetup() {
+  setupMicrosd();
+  writeHeaderSDCard();
+}
+
 void writeMonitorSDCard() {
+  // concat all sensing variables
+  String fullData;
+  fullData = senseTime;
+  fullData.concat(",");
+  fullData.concat(senseTemperature1);
+  fullData.concat(",");
+  fullData.concat(senseTemperature2);
+  fullData.concat(",");
+  fullData.concat(senseTemperature3);
+  fullData.concat(",");
+  fullData.concat(senseTemperature4);
+  fullData.concat(",");
+  fullData.concat(senseTemperature5);
+  fullData.concat(",");
+  fullData.concat(senseTemperature6);
+  fullData.concat(",");
+  fullData.concat(senseTemperature7);
+  fullData.concat(",");
+  fullData.concat(senseTemperature8);
+  fullData.concat(",");
+  fullData.concat(senseTemperatureHumid);
+  fullData.concat(",");
+  fullData.concat(senseHumid);
+  fullData.concat(",");
+  fullData.concat(senseCurrent1);
+  fullData.concat(",");
+  fullData.concat(senseCurrent2);
+  fullData.concat(",");
+  fullData.concat(senseVoltage);
+  fullData.concat(",");
+  fullData.concat(calculatedCOP);
+  fullData.concat(",");
+  fullData.concat(calculatedPower);
+  fullData.concat(",");
+  fullData.concat(calculatedUptime);
+  fullData.concat(",");
+  fullData.concat(calculatedFP);
+  fullData.concat(",");
+  fullData.concat(calculatedPCM1Pickload);
+
+  // Testing
+  Serial.println(fullData);
+
   // write data rows
   myFile = SD.open(SDCardFileName, FILE_WRITE);
-  if (myFile) {
+  if (myFile) {    
       // print data to sd card
-      myFile.println("Write data here");
+      myFile.println(fullData);
       myFile.close();
     } else {
     // if the file didn't open, print an error:
