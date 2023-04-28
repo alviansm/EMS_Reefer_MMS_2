@@ -39,5 +39,7 @@ extern String calculatedFP;
 extern String calculatedIteration;
 extern String calculatedPrice;
 extern String SDCardFileName;
+extern String fullData;
+extern int currentNextionPage;
 
 #endif

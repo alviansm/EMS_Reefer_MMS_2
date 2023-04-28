@@ -1,5 +1,4 @@
 #include "module-microsd.h"
-#include "variables/variables.h"
 
 // ==== MICROSD CONFIGURATION ====
 File myFile;
@@ -53,7 +52,7 @@ void completeSDCardSetup() {
 
 void writeMonitorSDCard() {
   // concat all sensing variables
-  String fullData;
+  fullData = ""; // reset to empty
   fullData = senseTime;
   fullData.concat(",");
   fullData.concat(senseTemperature1);

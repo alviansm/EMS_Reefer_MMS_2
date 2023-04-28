@@ -43,3 +43,9 @@ String calculatedPrice = "1444";
 
 // ==== SD Card File Name ====
 String SDCardFileName = "";
+
+// ==== Full Data Row ====
+String fullData = "";
+
+// ==== Nextion Display Variables ====
+int currentNextionPage = 0;

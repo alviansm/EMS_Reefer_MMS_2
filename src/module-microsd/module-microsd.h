@@ -4,6 +4,7 @@
 #include <SPI.h>
 #include <SD.h>
 #include <Arduino.h>
+#include "variables/variables.h"
 
 void setupMicrosd();
 void randomizeFileName();

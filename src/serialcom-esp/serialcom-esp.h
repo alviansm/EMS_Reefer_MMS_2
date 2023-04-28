@@ -4,6 +4,8 @@
 #include <Arduino.h>
 #include <SoftwareSerial.h>
 
+#include "variables/variables.h"
+
 void setupESP32();
 
 #endif

@@ -1,5 +1,5 @@
-#ifndef DEVICES_SETUP
-#define DEVICES_SETUP
+#ifndef DEVICES_INTEGRATION
+#define DEVICES_INTEGRATION
 
 #include <Arduino.h>
 

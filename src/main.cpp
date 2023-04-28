@@ -1,5 +1,5 @@
 #include <Arduino.h>
-#include "devices-setup/devices-setup.h"
+#include "devices-integration/devices-integration.h"
 
 void setup() {
   Serial.begin(9600);

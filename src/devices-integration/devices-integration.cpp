@@ -1,4 +1,4 @@
-#include "devices-setup.h"
+#include "devices-integration.h"
 
 void completeSensorSetup() {
     setupTemperatureSensor();
