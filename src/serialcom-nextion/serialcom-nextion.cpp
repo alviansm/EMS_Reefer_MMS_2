@@ -193,7 +193,7 @@ void updateNextionDashboard() {
   // Ambient Temperature
   lcd.print("tempAmbientVal.txt=");
   lcd.print('"');
-  lcd.print(senseTemperature1);
+  lcd.print(senseTemperature5);
   lcd.print('"');
   nextionWrite();
 
@@ -207,14 +207,14 @@ void updateNextionDashboard() {
   // PCM Temperature
   lcd.print("tempPCM1Val.txt=");
   lcd.print('"');
-  lcd.print(senseTemperature1);
+  lcd.print(senseTemperature3);
   lcd.print('"');
   nextionWrite();
 
   // PCM Temperature 2
   lcd.print("tempPCM2Val.txt=");
   lcd.print('"');
-  lcd.print(senseTemperature1);
+  lcd.print(senseTemperature7);
   lcd.print('"');
   nextionWrite();
 

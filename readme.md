@@ -12,13 +12,33 @@ Notes: ***Power connection not included, 5 V for modules and sensors***
 |4|Status|OK|
 |5|Properties Sensing|Temperature|
 |6|Unit|Celcius|
+
+##### Pin number
+| *No. PCB* | *No. Var* | *Panjang* |
+| ------------- | ------------- | ------------- |
+| 1 | 6 | 2 m |
+| 2 | 3 | 4 m |
+| 3 | 1 | 3 m |
+| 4 | 5 | 1 m |
+| 5 | 4 | 2 m |
+| 6 | 2 | 3 m |
+| 7 | 7 | 4 m |
+> Info (Berdasarkan No. PCB ):
+1. Kondensor
+2. Sampel PCM 1
+3. Evaporator
+4. Ambient
+5. Kompresor
+6. TXV
+7. Sampel PCM 2
+
 #### DHT21
 |*No.*|*Information*|*Value*|
 | ------------- | ------------- | ------------- |
 |1|Signal Type|Digital|
 |2|Pin Connection|8|
 |3|Total Sensor|1|
-|4|Status||
+|4|Status|Ok|
 |5|Properties|Temperature & Humidity|
 |6|Units|Celcius & RH (%)|
 #### ZMCT101C
@@ -27,7 +47,7 @@ Notes: ***Power connection not included, 5 V for modules and sensors***
 |1|Signal Type|Analog|
 |2|Pin Connection|A7, A8|
 |3|Total Sensor|3|
-|4|Status||
+|4|Status|1 Ok, 1 Need calibration|
 |5|Properties|Current|
 |6|Units|mA|
 ### Modules

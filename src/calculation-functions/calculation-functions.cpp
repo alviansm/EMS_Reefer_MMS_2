@@ -36,8 +36,8 @@ void calculatePCM1PickLoad() {
 void ecoActivation() {
   int sampelPCM1;
   int sampelPCM2;
-  sampelPCM1 = senseTemperature1.toInt(); // change this later
-  sampelPCM2 = senseTemperature2.toInt();
+  sampelPCM1 = senseTemperature1.toInt()+1; // change this later
+  sampelPCM2 = senseTemperature2.toInt()+1;
 
-  
+
 }

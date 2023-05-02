@@ -5,6 +5,7 @@
 #include <SD.h>
 #include <Arduino.h>
 #include "variables/variables.h"
+#include "module-buzzer/module-buzzer.h"
 
 void setupMicrosd();
 void randomizeFileName();

@@ -28,4 +28,6 @@ void puttingThingsTogether() {
     loopCurrentSensor2();
     relayStandBy();
     writeMonitorSDCard();
+    updateNextionDashboard();
+    updateNextionDetails();
 }
