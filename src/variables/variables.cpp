@@ -21,10 +21,10 @@ String senseCurrent2 = "";
 String senseVoltage = "220.00";
 
 // ==== RELAY STATE VARIABELS ====
-int relaystate1 = 0;
-int relaystate2 = 0;
-int relaystate3 = 0;
-int relaystate4 = 0;
+int relaystate1 = 1;
+int relaystate2 = 1;
+int relaystate3 = 1;
+int relaystate4 = 1;
 
 // ==== VARIABLES TO CALCUALTE COPs ====
 String calculatedCOP = "";

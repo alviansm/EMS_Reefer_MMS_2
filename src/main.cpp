@@ -12,6 +12,7 @@ void setup() {
 }
 
 void loop() {
+  calculationLoop();
   puttingThingsTogether();
   Serial.println(relaystate1);
   Serial.print(relaystate2);

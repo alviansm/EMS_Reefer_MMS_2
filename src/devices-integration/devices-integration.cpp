@@ -20,6 +20,12 @@ void completeSerialcomSetup() {
     setupESP32();
 }
 
+void calculationLoop() {
+    calculateCOP();
+    calculatePower();
+    ecoActivation();
+}
+
 void puttingThingsTogether() {
     loopTime();
     loopTemperatureSensors();

@@ -36,8 +36,14 @@ void calculatePCM1PickLoad() {
 void ecoActivation() {
   int sampelPCM1;
   int sampelPCM2;
-  sampelPCM1 = senseTemperature1.toInt()+1; // change this later
-  sampelPCM2 = senseTemperature2.toInt()+1;
+  sampelPCM1 = senseTemperature3.toInt(); // change this later
+  sampelPCM2 = senseTemperature7.toInt();
 
-
+  if (senseTemperatureHumid.toInt() > (-10)) {
+    relaystate1 = 1;
+    return;
+  }
+  if ((sampelPCM1 <= calculatedFP.toInt() && (sampelPCM2 <= calculatedFP.toInt()))) {
+    relaystate1 = 0; // turn off the relay for contactor 1 (compressor & condenser)
+  }
 }

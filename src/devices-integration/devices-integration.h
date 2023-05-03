@@ -19,10 +19,14 @@
 #include "serialcom-nextion/serialcom-nextion.h"
 #include "serialcom-esp/serialcom-esp.h"
 
+// calculation functions
+#include "calculation-functions/calculation-functions.h"
+
 // functions
 void completeSensorSetup();
 void completeModuleSetup();
 void completeSerialcomSetup();
+void calculationLoop();
 void puttingThingsTogether();
 
 #endif

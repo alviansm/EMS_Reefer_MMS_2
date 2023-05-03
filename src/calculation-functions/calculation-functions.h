@@ -12,5 +12,6 @@ void temperature3ToEnthalpy();
 void calculateCOP();
 void calculatePower();
 void calculatePCM1PickLoad();
+void ecoActivation();
 
 #endif

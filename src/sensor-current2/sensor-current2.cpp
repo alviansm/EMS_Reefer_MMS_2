@@ -8,7 +8,7 @@ void setupCurrentSensor2() {
 }
 
 void loopCurrentSensor2() {
-    double Irms2 = (emon2.calcIrms(1480)/100);
+    int Irms2 = (emon2.calcIrms(1480)/100);
 
     // Assign to global sensing variables
     senseCurrent2 = String(Irms2);

@@ -44,7 +44,7 @@ void loopTemperatureSensors() {
     // Search the wire for address
     if(sensors.getAddress(tempDeviceAddress, i)){
     // Print the data
-    float tempC = sensors.getTempC(tempDeviceAddress);
+    int tempC = sensors.getTempC(tempDeviceAddress);
     // Serial.print(tempC);
     // Serial.print(","); 
 

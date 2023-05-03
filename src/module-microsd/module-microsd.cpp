@@ -99,6 +99,8 @@ void writeMonitorSDCard() {
   if (myFile) {    
       // print data to sd card
       myFile.println(fullData);
+      Serial.print("success writing ");
+      Serial.print(SDCardFileName);
       myFile.close();
     } else {
     // if the file didn't open, print an error:
