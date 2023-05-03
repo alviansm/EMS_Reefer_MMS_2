@@ -8,9 +8,9 @@ void setupMicrosd() {
   // ==== SETUP FOR MICROSD ====
   Serial.print("Initializing SD Card...");
   if(!SD.begin(chipSelect)) {
-  Serial.println("SD card initialization failed!");
-  Serial.println("SD card initialization done.");
+    Serial.println("SD card initialization failed!");    
   }
+  Serial.println("SD card initialization done.");
 }
 
 void randomizeFileName() {
@@ -35,7 +35,7 @@ void writeHeaderSDCard() {
   delay(200);
   myFile = SD.open(SDCardFileName, FILE_WRITE);
   if (myFile) {
-    myFile.println("Time, SenseT1, SenseT2, SenseT3, SenseT4, SenseT5, SenseT6, SenseT7, SenseT8, SenseTH1, SenseRH, SenseCurrent1, SenseCurrent2, voltage, COP, Power, Uptime, PCM Freezing Point, Pickload"); // SD Card .CSV header row    
+    myFile.println("Time_Day, Time_Date, Time_Clock, SenseT1, SenseT2, SenseT3, SenseT4, SenseT5, SenseT6, SenseT7, SenseT8, SenseTH1, SenseRH, SenseCurrent1, SenseCurrent2, voltage, COP, Power, Uptime, PCM Freezing Point, Pickload"); // SD Card .CSV header row    
 
     myFile.close();
   } else {    
@@ -53,7 +53,11 @@ void completeSDCardSetup() {
 void writeMonitorSDCard() {
   // concat all sensing variables
   fullData = ""; // reset to empty
-  fullData = senseTime;
+  fullData = senseTimeDay;
+  fullData.concat(",");
+  fullData.concat(senseTimeDate);
+  fullData.concat(",");
+  fullData.concat(senseTimeClock);
   fullData.concat(",");
   fullData.concat(senseTemperature1);
   fullData.concat(",");

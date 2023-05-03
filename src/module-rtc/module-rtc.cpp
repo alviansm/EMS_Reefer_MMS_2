@@ -45,8 +45,8 @@ void loopTime() {
   senseTimeClock = rtc_clock;
 
   senseTime = rtc_day;
-  senseTime.concat("-");
+  senseTime.concat("_");
   senseTime.concat(rtc_date);
-  senseTime.concat("-");
+  senseTime.concat("_");
   senseTime.concat(rtc_clock);
 }
