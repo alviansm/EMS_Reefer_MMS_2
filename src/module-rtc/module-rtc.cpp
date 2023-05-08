@@ -11,7 +11,14 @@ String rtc_clock = "";
 String rtc_clock_minute = "";
 
 void setupRtc() {
-    URTCLIB_WIRE.begin();
+  URTCLIB_WIRE.begin();
+
+  // Comment out below line once you set the date & time.
+  // Following line sets the RTC with an explicit date & time
+  // for example to set January 13 2022 at 12:56 you would call:
+  rtc.set(0, 00, 11, 2, 8, 5, 23);
+  // rtc.set(second, minute, hour, dayOfWeek, dayOfMonth, month, year)
+  // set day of week (1=Sunday, 7=Saturday)
 }
 
 void calculateUptime() {

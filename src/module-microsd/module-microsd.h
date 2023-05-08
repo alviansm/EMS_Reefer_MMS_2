@@ -2,7 +2,7 @@
 #define MODULE_MICROSD
 
 #include <SPI.h>
-#include <SD.h>
+#include <SdFat.h>
 #include <Arduino.h>
 #include "variables/variables.h"
 #include "module-buzzer/module-buzzer.h"

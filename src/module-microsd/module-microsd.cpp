@@ -1,16 +1,41 @@
 #include "module-microsd.h"
 
 // ==== MICROSD CONFIGURATION ====
+SdFat SD;
+#define FILE_BASE_NAME "DataSkripsi-"
+
+const uint8_t CS_PIN = 53;
+
 File myFile;
-const int chipSelect = 53; // change this to match your SD shield or module;
+
+const uint8_t BASE_NAME_SIZE = sizeof(FILE_BASE_NAME) - 1;
+char fileName[] = FILE_BASE_NAME "00.csv";
 
 void setupMicrosd() {
   // ==== SETUP FOR MICROSD ====
-  Serial.print("Initializing SD Card...");
-  if(!SD.begin(chipSelect)) {
-    Serial.println("SD card initialization failed!");    
+  if (!SD.begin(CS_PIN)) {
+    Serial.println(F("begin failed"));
+    return;
   }
-  Serial.println("SD card initialization done.");
+  while (SD.exists(fileName)) {
+    if (fileName[BASE_NAME_SIZE + 1] != '9') {
+      fileName[BASE_NAME_SIZE + 1]++;
+    } else if (fileName[BASE_NAME_SIZE] != '9') {
+      fileName[BASE_NAME_SIZE + 1] = '0';
+      fileName[BASE_NAME_SIZE]++;
+    } else {
+      Serial.println(F("Can't create file name"));
+      return;
+    }
+  }
+  myFile = SD.open(fileName, FILE_WRITE);
+  if (!myFile) {
+    Serial.println(F("open failed"));
+    return;
+  }
+  Serial.print(F("opened: "));
+  Serial.println(fileName);
+  myFile.close();
 }
 
 void randomizeFileName() {
@@ -47,7 +72,6 @@ void writeHeaderSDCard() {
 
 void completeSDCardSetup() {
   setupMicrosd();
-  writeHeaderSDCard();
 }
 
 void writeMonitorSDCard() {
@@ -99,18 +123,18 @@ void writeMonitorSDCard() {
   Serial.println(fullData);
 
   // write data rows
-  myFile = SD.open(SDCardFileName, FILE_WRITE);
+  myFile = SD.open(fileName, FILE_WRITE);
   if (myFile) {    
       // print data to sd card
       myFile.println(fullData);
       Serial.print("success writing ");
-      Serial.print(SDCardFileName);
+      Serial.print(fileName);
       myFile.close();
     } else {
     // if the file didn't open, print an error:
     buzzerSOSFunc();
     Serial.print("error writing ");
-    Serial.print(SDCardFileName);
+    Serial.print(fileName);
     Serial.println();
   }
 }

@@ -24,12 +24,12 @@ Notes: ***Power connection not included, 5 V for modules and sensors***
 | 6 | 2 | 3 m |
 | 7 | 7 | 4 m |
 > Info (Berdasarkan No. PCB ):
-1. Kondensor
+1. Inlet Kondensor
 2. Sampel PCM 1
-3. Evaporator
+3. Inlet Evaporator
 4. Ambient
-5. Kompresor
-6. TXV
+5. Inlet Kompresor
+6. Inlet TXV
 7. Sampel PCM 2
 
 #### DHT21
