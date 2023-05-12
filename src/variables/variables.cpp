@@ -36,6 +36,7 @@ float tempOutEvap = 0.00;
 float tempInEvap = 0.00;
 String calculatedPower = "";
 String calculatedUptime = "";
+String calculatedChargeTime = "";
 String calculatedPCM1Pickload = "";
 String calculatedFP = "-14";
 String calculatedIteration = "0";

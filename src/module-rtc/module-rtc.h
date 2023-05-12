@@ -6,7 +6,9 @@
 #include "variables/variables.h"
 
 void setupRtc();
+void determineDay();
 void calculateUptime();
+void calculateChargeTime();
 void loopTime();
 
 #endif

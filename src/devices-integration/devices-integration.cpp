@@ -23,6 +23,8 @@ void completeSerialcomSetup() {
 void calculationLoop() {
     calculateCOP();
     calculatePower();
+    calculateUptime();
+    calculateChargeTime();
     ecoActivation();
 }
 
