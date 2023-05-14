@@ -4,7 +4,6 @@
 #include "module-relay/module-relay.h"
 
 void setup() {
-  setupRelay();
   Serial.begin(9600);
 
   completeSensorSetup();

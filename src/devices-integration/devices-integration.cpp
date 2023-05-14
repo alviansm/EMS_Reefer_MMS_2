@@ -8,6 +8,7 @@ void completeSensorSetup() {
 }
 
 void completeModuleSetup() {
+    setupRelay();
     setupBuzzer();
     setupMicrosd();
     setupRtc();
@@ -35,7 +36,7 @@ void puttingThingsTogether() {
     loopCurrentSensor1();
     loopCurrentSensor2();
     relayStandBy();
-    // writeMonitorSDCard();
+    writeMonitorSDCard();
     // updateNextionDashboard();
     // updateNextionDetails();
 }

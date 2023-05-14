@@ -57,5 +57,11 @@ void ecoActivation() {
 
   if (senseHumid.toInt() > 85) {
     relaystate1 = 0;
+    return;
   }
+  if (senseHumid.toInt() < 85) {
+    relaystate1 = 1;
+    return;
+  }
+  return;
 }
