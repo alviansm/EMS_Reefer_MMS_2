@@ -10,7 +10,6 @@ void completeSensorSetup() {
 void completeModuleSetup() {
     setupBuzzer();
     setupMicrosd();
-    setupRelay();
     setupRtc();
     writeHeaderSDCard();
 }
@@ -24,6 +23,7 @@ void calculationLoop() {
     calculateCOP();
     calculatePower();
     calculateUptime();
+    calculatePCM1PickLoad();
     calculateChargeTime();
     ecoActivation();
 }
@@ -35,7 +35,7 @@ void puttingThingsTogether() {
     loopCurrentSensor1();
     loopCurrentSensor2();
     relayStandBy();
-    writeMonitorSDCard();
-    updateNextionDashboard();
-    updateNextionDetails();
+    // writeMonitorSDCard();
+    // updateNextionDashboard();
+    // updateNextionDetails();
 }

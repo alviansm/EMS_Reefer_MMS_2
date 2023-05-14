@@ -1,7 +1,7 @@
 #include "sensor-humidity.h"
 
 //Constants
-#define DHTPIN 8            //what pin we're connected to
+#define DHTPIN A13            //what pin we're connected to
 #define DHTTYPE DHT21       //DHT 21  (AM2301)
 DHT dht(DHTPIN, DHTTYPE);   //Initialize DHT sensor for normal 16mhz Arduino
 

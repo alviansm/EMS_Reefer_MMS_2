@@ -4,7 +4,7 @@
 EnergyMonitor emon1;
 
 void setupCurrentSensor1() {
-    emon1.current(7, 100.11); // (Pin, Calibration)
+    emon1.current(12, 100.11); // (Pin, Calibration)
 }
 
 void loopCurrentSensor1() {

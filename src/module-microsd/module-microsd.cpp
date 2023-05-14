@@ -65,7 +65,7 @@ void writeHeaderSDCard() {
     myFile.close();
   } else {    
     Serial.print("Error opening ");
-    Serial.print(SDCardFileName);
+    Serial.print(fileName);
     Serial.println();
   }
 }

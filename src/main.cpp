@@ -1,8 +1,10 @@
 #include <Arduino.h>
 #include "devices-integration/devices-integration.h"
 #include "module-buzzer/module-buzzer.h"
+#include "module-relay/module-relay.h"
 
 void setup() {
+  setupRelay();
   Serial.begin(9600);
 
   completeSensorSetup();
@@ -20,5 +22,4 @@ void loop() {
   Serial.print(relaystate3);
   Serial.print(relaystate4);
   Serial.println();
-  delay(1000);
 }

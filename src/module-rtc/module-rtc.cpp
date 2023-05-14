@@ -17,7 +17,7 @@ String timeElapsed = "";
 
 void setupRtc() {
   URTCLIB_WIRE.begin();
-  delay(3000);
+  delay(1000);
 
   // Comment out below line once you set the date & time.
   // Following line sets the RTC with an explicit date & time

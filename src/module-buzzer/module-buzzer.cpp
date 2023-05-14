@@ -1,6 +1,6 @@
 #include "module-buzzer.h"
 
-int buzzerPin = 5;
+int buzzerPin = A15;
 
 void setupBuzzer() {
     pinMode(buzzerPin, OUTPUT);

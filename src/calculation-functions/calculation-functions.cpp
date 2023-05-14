@@ -22,7 +22,15 @@ void temperature3ToEnthalpy() {
 }
 
 void calculateCOP() {
-  calculatedCOP = String((enthalpy1-enthalpy4)/(enthalpy2-enthalpy1));
+  temperature1ToLEnthalpy();
+  temperature2ToEnthalpy();
+  temperature3ToEnthalpy();
+  if ((enthalpy2-enthalpy1) <= 0.01) {
+    calculatedCOP = String(0.00);
+    return;
+  } else {
+    calculatedCOP = String((enthalpy1-enthalpy4)/(enthalpy2-enthalpy1));
+  }
 }
 
 void calculatePower() {
@@ -47,7 +55,7 @@ void ecoActivation() {
   //   relaystate1 = 0; // turn off the relay for contactor 1 (compressor & condenser)
   // }
 
-  if (senseHumid.toInt() > 90) {
+  if (senseHumid.toInt() > 85) {
     relaystate1 = 0;
   }
 }
