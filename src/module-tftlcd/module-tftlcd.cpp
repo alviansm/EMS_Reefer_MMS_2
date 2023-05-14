@@ -117,8 +117,6 @@ void draw_home_screen()
     //===========================monitoring square=====================
     my_lcd.Set_Draw_color(220, 255, 255);
     my_lcd.Fill_Rectangle(4, 64, 68, 96);
-    //uint8_t coba_random = coba;
-    //Serial.println(coba_random);
     show_string("38", 24, 74, 2, BLACK, BLACK, 1);
     show_string("AMBIENT (C)", 5, 102, 1, WHITE, BLACK, 1);
 
@@ -137,11 +135,11 @@ void draw_home_screen()
     show_string("2,44", 262, 74, 2, BLACK, BLACK, 1);
     show_string("COP", 272, 102, 1, WHITE, BLACK, 1);
 
-    //set point
+    //relative humidity
     my_lcd.Set_Draw_color(220, 255, 255);
     my_lcd.Fill_Rectangle(87, 128, 151, 160);
     show_string("-20", 104, 140, 2, BLACK, BLACK, 1);
-    show_string("SET POINT (C)", 84, 166, 1, WHITE, BLACK, 1);
+    show_string("RH INS. (%)", 84, 166, 1, WHITE, BLACK, 1);
     
     //pcm
     my_lcd.Set_Draw_color(220, 255, 255);
@@ -150,8 +148,8 @@ void draw_home_screen()
     show_string("PCM (C)", 180, 166, 1, WHITE, BLACK, 1);
     
     //Eco Activated
-    show_string("ECO MODE", 4, 200, 2, GREEN, BLACK, 1);
-    show_string("Activated", 4, 220, 1, WHITE, BLACK, 1);
+    show_string("1/2 TON", 4, 200, 2, GREEN, BLACK, 1);
+    show_string("Eco-Reefer Container", 4, 220, 1, WHITE, BLACK, 1);
     
     //button goto setting
     my_lcd.Set_Draw_color(0, 255, 255);
@@ -159,66 +157,18 @@ void draw_home_screen()
     show_string("->", 270, 220, 2, BLACK, BLACK, 2);
 }
 
-void show_setting_menu() {    
-    my_lcd.Fill_Screen(BLUE);
-    
-    show_string("Menu Utama", 110, 16, 2, WHITE, BLACK, 1);
-
-    //goto kontrol komponen
-    my_lcd.Set_Draw_color(220, 255, 255);
-    my_lcd.Fill_Rectangle(32, 48, 151, 80);
-    show_string("Switch", 44, 56, 2, BLACK, BLACK, 1);
-
-    //detail
-    my_lcd.Set_Draw_color(220, 255, 255);
-    my_lcd.Fill_Rectangle(170, 48, 288, 80);
-    show_string("Details", 182, 56, 2, BLACK, BLACK, 1);
-    
-    //goto wifi
-    my_lcd.Set_Draw_color(220, 255, 255);
-    my_lcd.Fill_Rectangle(32, 96, 288, 128);
-    show_string("Pengaturan Wi-FI", 64, 104, 2, BLACK, BLACK, 1);
-
-    //goto info
-    my_lcd.Set_Draw_color(220, 255, 255);
-    my_lcd.Fill_Rectangle(32, 144, 288, 176);
-    show_string("Info", 138, 154, 2, BLACK, BLACK, 1);
-
-    //goto
-
-    //button back to dashboard
-    my_lcd.Set_Draw_color(220, 255, 255);
-    my_lcd.Fill_Rectangle(0, 208, 74, 240);
-    show_string("<-", 25, 220, 2, BLACK, BLACK, 2);
-}
-
-void draw_info_page(){
-  my_lcd.Fill_Screen(BLUE);
-  show_string("Info", 4, 16, 2, WHITE, BLACK, 1);
-
-  show_string("Pengembangan Sistem Manajemen Energi Berbasis", CENTER, 48, 1, WHITE, BLACK, 1);
-  show_string("IoT Pada Refrigerasi Hybrid PCM Untuk Eco-Reefer", CENTER, 60, 1, WHITE, BLACK, 1);
-  show_string("Container", CENTER, 72, 1, WHITE, BLACK, 1);
-
-  //copyright
-  show_string("Alvians Maulana, 2023", CENTER, 220, 1, WHITE, BLACK, 1);
-
-  //button back to main menu
-  my_lcd.Set_Draw_color(220, 255, 255);
-  my_lcd.Fill_Rectangle(0, 208, 74, 240);
-  show_string("<-", 25, 220, 2, BLACK, BLACK, 2);
+void show_relay_menu() {
+	//
+	
 }
 
 /*
  * Page
  * 0 -> Dashboard
- * 1 -> Main Menu
- * 2 -> Info
  */
 
 void setupLCD() {
   //dashboard setting
-  Serial.println(TITLE);
   digitalWrite(A0, HIGH);
   pinMode(A0, OUTPUT);
   my_lcd.Init_LCD();
@@ -227,67 +177,44 @@ void setupLCD() {
   draw_home_screen();
 }
 
-void loopLCD(){
-	  uint16_t i;
+void loopLCD() {
+	// loop the sensing variables
+	const char* char_senseHumid = senseHumid.c_str();
+	Serial.println(char_senseHumid);
+
+	uint16_t i;
   digitalWrite(13, HIGH);
   TSPoint p = ts.getPoint();
   digitalWrite(13, LOW);
 
   pinMode(XM, OUTPUT); 
   pinMode(YP, OUTPUT);
-  
-  //page naviagtion looping
-  if (p.z > MINPRESSURE && p.z < MAXPRESSURE) {
-     p.x = map(p.x, TS_MINX, TS_MAXX, 0, my_lcd.Get_Display_Width());
-     p.y = map(p.y, TS_MINY, TS_MAXY, 0, my_lcd.Get_Display_Height());
-     Serial.print(p.x);
-     Serial.print(",");
-     Serial.print(p.y);     
-     Serial.println();          
-     //===============in dashboard -> main menu====================
-     if (is_pressed(0, 180, 64, 240, p.x, p.y) && page=='0'){        
-        //button goto main menu (page 1) - pressed
-        my_lcd.Set_Draw_color(55, 55, 55);
-        my_lcd.Fill_Rectangle(320, 240, 246, 208);  
-        show_string("->", 270, 220, 2, WHITE, BLACK, 2);          
-        delay(200);
-        //back to semula -> ganti ke menu
-        show_setting_menu();
-        page = '1';
-        Serial.println(page);
-        //my_lcd.Set_Draw_color(0, 255, 255);
-        //my_lcd.Fill_Rectangle(320, 240, 246, 208); 
-     }     
-     //==============in main menu -> dashboard====================
-     if (is_pressed(0, 0, 64, 64, p.x, p.y) && page=='1') {
-        //button goto dashboard (page 0) - pressed
-        my_lcd.Set_Draw_color(55, 55, 55);
-        my_lcd.Fill_Rectangle(0, 208, 74, 240);
-        show_string("<-", 25, 220, 2, WHITE, BLACK, 2);
-        delay(200);
-        draw_home_screen();
-        page = '0';        
-     }
-     //===============in main menu -> info=============
-     if (is_pressed(105, 30, 145, 200, p.x, p.y) && page=='1') {
-        //button go to info
-        my_lcd.Set_Draw_color(55, 55, 55);
-        my_lcd.Fill_Rectangle(32, 144, 288, 176);
-        show_string("Info", 138, 154, 2, BLACK, BLACK, 1);
-        delay(200);
-        draw_info_page();
-        page = '2';        
-     }
-     //==============in info -> main menu=============
-     if (is_pressed(0, 0, 64, 64, p.x, p.y) && (page=='2' || page=='3' || page=='4')) {
-        //button back to main menu
-        my_lcd.Set_Draw_color(55, 55, 55);
-        my_lcd.Fill_Rectangle(0, 208, 74, 240);
-        show_string("<-", 25, 220, 2, WHITE, BLACK, 2);
-        delay(200);
-        
-        show_setting_menu();
-        page = '1';    
-     }
-  }  
+	
+	// update variables
+	if (page == '0') {
+		//relative humidity
+    my_lcd.Set_Draw_color(220, 255, 255);
+    my_lcd.Fill_Rectangle(87, 128, 151, 160);
+    show_string(char_senseHumid, 104, 140, 2, BLACK, BLACK, 1);
+    show_string("RH INS. (%)", 84, 166, 1, WHITE, BLACK, 1);
+	} 
+	
+	//page naviagtion looping
+	if (p.z > MINPRESSURE && p.z < MAXPRESSURE) {
+		p.x = map(p.x, TS_MINX, TS_MAXX, 0, my_lcd.Get_Display_Width());
+		p.y = map(p.y, TS_MINY, TS_MAXY, 0, my_lcd.Get_Display_Height());      
+
+		//===============in dashboard -> main menu====================
+		if (is_pressed(0, 180, 64, 240, p.x, p.y) && page=='0'){        
+				//button goto main menu (page 1) - pressed
+				my_lcd.Set_Draw_color(55, 55, 55);
+				my_lcd.Fill_Rectangle(320, 240, 246, 208);  
+				show_string("->", 270, 220, 2, WHITE, BLACK, 2);          
+				delay(200);
+				page = '0';
+				my_lcd.Set_Draw_color(0, 255, 255);
+				my_lcd.Fill_Rectangle(320, 240, 246, 208); 
+				show_string("->", 270, 220, 2, BLACK, BLACK, 2);
+		}   
+	} 		
 }

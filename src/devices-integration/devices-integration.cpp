@@ -16,7 +16,7 @@ void completeModuleSetup() {
 }
 
 void completeSerialcomSetup() {
-    setupSerialcomNextion();
+    // setupSerialcomNextion();
     setupESP32();
 }
 
@@ -37,7 +37,6 @@ void puttingThingsTogether() {
     loopCurrentSensor2();
     relayStandBy();
     writeMonitorSDCard();
-    loopLCD();
     // updateNextionDashboard();
     // updateNextionDetails();
 }

@@ -2,8 +2,9 @@
 #include "devices-integration/devices-integration.h"
 #include "module-buzzer/module-buzzer.h"
 #include "module-relay/module-relay.h"
+#include "module-tftlcd/module-tftlcd.h"
 
-void setup() {
+void setup() {  
   Serial.begin(9600);
 
   completeSensorSetup();
@@ -13,12 +14,11 @@ void setup() {
 }
 
 void loop() {
+  unsigned long lcdTime = millis();
+  if (lcdTime > 50) {
+    loopLCD();
+  }
+
   calculationLoop();
   puttingThingsTogether();
-  Serial.println();
-  Serial.print(relaystate1);
-  Serial.print(relaystate2);
-  Serial.print(relaystate3);
-  Serial.print(relaystate4);
-  Serial.println();
 }
