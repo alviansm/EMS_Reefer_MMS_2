@@ -178,9 +178,15 @@ void setupLCD() {
 }
 
 void loopLCD() {
-	// loop the sensing variables
+	// loop the sensing variables (inside power cop pcm)
+	const char* char_senseDate = senseTimeDate.c_str();
+	const char* char_senseClock = senseTimeClock.c_str();
 	const char* char_senseHumid = senseHumid.c_str();
-	Serial.println(char_senseHumid);
+	const char* char_temperatureAmbient = senseTemperature5.c_str();
+	const char* char_temperatureInside = senseTemperatureHumid.c_str();
+	const char* char_power = calculatedPower.c_str();
+	const char* char_cop = calculatedCOP.c_str();
+	const char* char_temperaturePCM = senseTemperature3.c_str();
 
 	uint16_t i;
   digitalWrite(13, HIGH);
@@ -192,11 +198,43 @@ void loopLCD() {
 	
 	// update variables
 	if (page == '0') {
-		//relative humidity
+		my_lcd.Set_Draw_color(0, 0, 255);
+    my_lcd.Fill_Rectangle(0, 0, 96, 24);
+		show_string(char_senseDate, LEFT, 6, 2, WHITE, BLACK, 1);
+
+		my_lcd.Set_Draw_color(0, 0, 255);
+    my_lcd.Fill_Rectangle(0, 24, 96, 48);
+    show_string(char_senseClock, LEFT, 32, 2, WHITE, BLACK, 1);
+
+		my_lcd.Set_Draw_color(220, 255, 255);
+    my_lcd.Fill_Rectangle(4, 64, 68, 96);
+    show_string(char_temperatureAmbient, 24, 74, 2, BLACK, BLACK, 1);
+    show_string("AMBIENT (C)", 5, 102, 1, WHITE, BLACK, 1);
+
+		my_lcd.Set_Draw_color(220, 255, 255);
+    my_lcd.Fill_Rectangle(87, 64, 151, 96);
+    show_string(char_temperatureInside, 104, 74, 2, BLACK, BLACK, 1);
+    show_string("INSIDE (C)", 92, 102, 1, WHITE, BLACK, 1);
+
+		my_lcd.Set_Draw_color(220, 255, 255);
+    my_lcd.Fill_Rectangle(170, 64, 234, 96);
+    show_string(char_power, 182, 74, 2, BLACK, BLACK, 1);
+    show_string("POWER (kW)", 174, 102, 1, WHITE, BLACK, 1);
+
+		my_lcd.Set_Draw_color(220, 255, 255);
+    my_lcd.Fill_Rectangle(252, 64, 314, 96);
+    show_string(char_cop, 262, 74, 2, BLACK, BLACK, 1);
+    show_string("COP", 272, 102, 1, WHITE, BLACK, 1);
+		
     my_lcd.Set_Draw_color(220, 255, 255);
     my_lcd.Fill_Rectangle(87, 128, 151, 160);
     show_string(char_senseHumid, 104, 140, 2, BLACK, BLACK, 1);
     show_string("RH INS. (%)", 84, 166, 1, WHITE, BLACK, 1);
+
+		my_lcd.Set_Draw_color(220, 255, 255);
+    my_lcd.Fill_Rectangle(170, 128, 234, 160);
+    show_string(char_temperaturePCM, 182, 140, 2, BLACK, BLACK, 1);
+    show_string("PCM (C)", 180, 166, 1, WHITE, BLACK, 1);
 	} 
 	
 	//page naviagtion looping
@@ -205,7 +243,7 @@ void loopLCD() {
 		p.y = map(p.y, TS_MINY, TS_MAXY, 0, my_lcd.Get_Display_Height());      
 
 		//===============in dashboard -> main menu====================
-		if (is_pressed(0, 180, 64, 240, p.x, p.y) && page=='0'){        
+		if (is_pressed(0, 180, 64, 240, p.x, p.y) && page =='0'){        
 				//button goto main menu (page 1) - pressed
 				my_lcd.Set_Draw_color(55, 55, 55);
 				my_lcd.Fill_Rectangle(320, 240, 246, 208);  
@@ -216,5 +254,16 @@ void loopLCD() {
 				my_lcd.Fill_Rectangle(320, 240, 246, 208); 
 				show_string("->", 270, 220, 2, BLACK, BLACK, 2);
 		}   
-	} 		
+	} 	
+
+	Serial.println();
+	Serial.print("PAGE: ");
+	Serial.print(page);
+	Serial.println();
+	Serial.print("P.X: ");
+	Serial.print(p.x);
+	Serial.println();
+	Serial.print("P.Y: ");
+	Serial.print(p.y);
+
 }
