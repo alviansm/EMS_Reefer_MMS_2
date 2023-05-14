@@ -56,9 +56,7 @@ void randomizeFileName() {
 
 void writeHeaderSDCard() {
   // Write first row for csv data (header)
-  randomizeFileName();
-  delay(200);
-  myFile = SD.open(SDCardFileName, FILE_WRITE);
+  myFile = SD.open(fileName, FILE_WRITE);
   if (myFile) {
     myFile.println("Time_Day, Time_Date, Time_Clock, SenseT1, SenseT2, SenseT3, SenseT4, SenseT5, SenseT6, SenseT7, SenseT8, SenseTH1, SenseRH, SenseCurrent1, SenseCurrent2, voltage, COP, Power, Uptime, PCM Freezing Point, Pickload"); // SD Card .CSV header row    
 
@@ -72,6 +70,7 @@ void writeHeaderSDCard() {
 
 void completeSDCardSetup() {
   setupMicrosd();
+  writeHeaderSDCard();
 }
 
 void writeMonitorSDCard() {

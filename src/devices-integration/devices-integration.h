@@ -14,6 +14,7 @@
 #include "module-microsd/module-microsd.h"
 #include "module-relay/module-relay.h"
 #include "module-rtc/module-rtc.h"
+#include "module-tftlcd/module-tftlcd.h"
 
 // serialcom
 #include "serialcom-nextion/serialcom-nextion.h"

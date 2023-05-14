@@ -25,9 +25,11 @@ void calculateCOP() {
   temperature1ToLEnthalpy();
   temperature2ToEnthalpy();
   temperature3ToEnthalpy();
-  if ((enthalpy2-enthalpy1) <= 0.01) {
+  Serial.println(enthalpy1);
+  Serial.println(enthalpy4);
+  Serial.println(enthalpy2);
+  if ((enthalpy2-enthalpy1) <= 0) {
     calculatedCOP = String(0.00);
-    return;
   } else {
     calculatedCOP = String((enthalpy1-enthalpy4)/(enthalpy2-enthalpy1));
   }

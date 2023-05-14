@@ -1,0 +1,80 @@
+//
+// !!! WARNING !!! AUTO-GENERATED FILE!
+// PLEASE DO NOT MODIFY IT AND USE "platformio.ini":
+// https://docs.platformio.org/page/projectconf/section_env_build.html#build-flags
+//
+{
+    "configurations": [
+        {
+            "name": "PlatformIO",
+            "includePath": [
+                "c:/Users/Ian/Documents/PlatformIO/Projects/EMS_Reefer_MMS_2/include",
+                "c:/Users/Ian/Documents/PlatformIO/Projects/EMS_Reefer_MMS_2/src",
+                "c:/Users/Ian/Documents/PlatformIO/Projects/EMS_Reefer_MMS_2/.pio/libdeps/megaatmega2560/SdFat - Adafruit Fork/src",
+                "c:/Users/Ian/Documents/PlatformIO/Projects/EMS_Reefer_MMS_2/.pio/libdeps/megaatmega2560/Nextion",
+                "C:/Users/Ian/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+                "c:/Users/Ian/Documents/PlatformIO/Projects/EMS_Reefer_MMS_2/.pio/libdeps/megaatmega2560/DHT sensor library",
+                "c:/Users/Ian/Documents/PlatformIO/Projects/EMS_Reefer_MMS_2/.pio/libdeps/megaatmega2560/Adafruit Unified Sensor",
+                "c:/Users/Ian/Documents/PlatformIO/Projects/EMS_Reefer_MMS_2/.pio/libdeps/megaatmega2560/SD/src",
+                "C:/Users/Ian/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                "c:/Users/Ian/Documents/PlatformIO/Projects/EMS_Reefer_MMS_2/.pio/libdeps/megaatmega2560/EmonLib",
+                "c:/Users/Ian/Documents/PlatformIO/Projects/EMS_Reefer_MMS_2/.pio/libdeps/megaatmega2560/uRTCLib/src",
+                "C:/Users/Ian/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+                "c:/Users/Ian/Documents/PlatformIO/Projects/EMS_Reefer_MMS_2/.pio/libdeps/megaatmega2560/DallasTemperature",
+                "c:/Users/Ian/Documents/PlatformIO/Projects/EMS_Reefer_MMS_2/.pio/libdeps/megaatmega2560/OneWire",
+                "C:/Users/Ian/.platformio/packages/framework-arduino-avr/cores/arduino",
+                "C:/Users/Ian/.platformio/packages/framework-arduino-avr/variants/mega",
+                "c:/Users/Ian/Documents/PlatformIO/Projects/EMS_Reefer_MMS_2/.pio/libdeps/megaatmega2560/LCDWIKI_GUI",
+                "c:/Users/Ian/Documents/PlatformIO/Projects/EMS_Reefer_MMS_2/.pio/libdeps/megaatmega2560/LCDWIKI_KBV",
+                "c:/Users/Ian/Documents/PlatformIO/Projects/EMS_Reefer_MMS_2/.pio/libdeps/megaatmega2560/TouchScreen",
+                "C:/Users/Ian/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
+                "C:/Users/Ian/.platformio/packages/framework-arduino-avr/libraries/HID/src",
+                ""
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "c:/Users/Ian/Documents/PlatformIO/Projects/EMS_Reefer_MMS_2/include",
+                    "c:/Users/Ian/Documents/PlatformIO/Projects/EMS_Reefer_MMS_2/src",
+                    "c:/Users/Ian/Documents/PlatformIO/Projects/EMS_Reefer_MMS_2/.pio/libdeps/megaatmega2560/SdFat - Adafruit Fork/src",
+                    "c:/Users/Ian/Documents/PlatformIO/Projects/EMS_Reefer_MMS_2/.pio/libdeps/megaatmega2560/Nextion",
+                    "C:/Users/Ian/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+                    "c:/Users/Ian/Documents/PlatformIO/Projects/EMS_Reefer_MMS_2/.pio/libdeps/megaatmega2560/DHT sensor library",
+                    "c:/Users/Ian/Documents/PlatformIO/Projects/EMS_Reefer_MMS_2/.pio/libdeps/megaatmega2560/Adafruit Unified Sensor",
+                    "c:/Users/Ian/Documents/PlatformIO/Projects/EMS_Reefer_MMS_2/.pio/libdeps/megaatmega2560/SD/src",
+                    "C:/Users/Ian/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                    "c:/Users/Ian/Documents/PlatformIO/Projects/EMS_Reefer_MMS_2/.pio/libdeps/megaatmega2560/EmonLib",
+                    "c:/Users/Ian/Documents/PlatformIO/Projects/EMS_Reefer_MMS_2/.pio/libdeps/megaatmega2560/uRTCLib/src",
+                    "C:/Users/Ian/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+                    "c:/Users/Ian/Documents/PlatformIO/Projects/EMS_Reefer_MMS_2/.pio/libdeps/megaatmega2560/DallasTemperature",
+                    "c:/Users/Ian/Documents/PlatformIO/Projects/EMS_Reefer_MMS_2/.pio/libdeps/megaatmega2560/OneWire",
+                    "C:/Users/Ian/.platformio/packages/framework-arduino-avr/cores/arduino",
+                    "C:/Users/Ian/.platformio/packages/framework-arduino-avr/variants/mega",
+                    "c:/Users/Ian/Documents/PlatformIO/Projects/EMS_Reefer_MMS_2/.pio/libdeps/megaatmega2560/LCDWIKI_GUI",
+                    "c:/Users/Ian/Documents/PlatformIO/Projects/EMS_Reefer_MMS_2/.pio/libdeps/megaatmega2560/LCDWIKI_KBV",
+                    "c:/Users/Ian/Documents/PlatformIO/Projects/EMS_Reefer_MMS_2/.pio/libdeps/megaatmega2560/TouchScreen",
+                    "C:/Users/Ian/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
+                    "C:/Users/Ian/.platformio/packages/framework-arduino-avr/libraries/HID/src",
+                    ""
+                ]
+            },
+            "defines": [
+                "PLATFORMIO=60107",
+                "ARDUINO_AVR_MEGA2560",
+                "F_CPU=16000000L",
+                "ARDUINO_ARCH_AVR",
+                "ARDUINO=10808",
+                "__AVR_ATmega2560__",
+                ""
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "compilerPath": "C:/Users/Ian/.platformio/packages/toolchain-atmelavr/bin/avr-gcc.exe",
+            "compilerArgs": [
+                "-mmcu=atmega2560",
+                ""
+            ]
+        }
+    ],
+    "version": 4
+}

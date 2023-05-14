@@ -12,7 +12,7 @@ void completeModuleSetup() {
     setupBuzzer();
     setupMicrosd();
     setupRtc();
-    writeHeaderSDCard();
+    setupLCD();
 }
 
 void completeSerialcomSetup() {
@@ -37,6 +37,7 @@ void puttingThingsTogether() {
     loopCurrentSensor2();
     relayStandBy();
     writeMonitorSDCard();
+    loopLCD();
     // updateNextionDashboard();
     // updateNextionDetails();
 }
