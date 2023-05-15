@@ -33,44 +33,10 @@ void setupMicrosd() {
     Serial.println(F("open failed"));
     return;
   }
+  myFile.println("Time_Day, Time_Date, Time_Clock, SenseT1, SenseT2, SenseT3, SenseT4, SenseT5, SenseT6, SenseT7, SenseT8, SenseTH1, SenseRH, SenseCurrent1, SenseCurrent2, voltage, COP, Power, Uptime, PCM Freezing Point, Pickload"); // SD Card .CSV header row  
   Serial.print(F("opened: "));
   Serial.println(fileName);
   myFile.close();
-}
-
-void randomizeFileName() {
-  // Randomize file name variables that want to be used later for SD card file name, local storage save
-  SDCardFileName = "";
-  int random_length = 4;
-  int temporary_random_num = random(0, 9);
-  SDCardFileName = String(temporary_random_num);
-
-  for (int i=0;i<random_length;i++){
-    temporary_random_num = random(0,9);
-    SDCardFileName.concat(String(temporary_random_num));
-  }
-
-  // adding format file
-  SDCardFileName.concat(".CSV");
-}
-
-void writeHeaderSDCard() {
-  // Write first row for csv data (header)
-  myFile = SD.open(fileName, FILE_WRITE);
-  if (myFile) {
-    myFile.println("Time_Day, Time_Date, Time_Clock, SenseT1, SenseT2, SenseT3, SenseT4, SenseT5, SenseT6, SenseT7, SenseT8, SenseTH1, SenseRH, SenseCurrent1, SenseCurrent2, voltage, COP, Power, Uptime, PCM Freezing Point, Pickload"); // SD Card .CSV header row    
-
-    myFile.close();
-  } else {    
-    Serial.print("Error opening ");
-    Serial.print(fileName);
-    Serial.println();
-  }
-}
-
-void completeSDCardSetup() {
-  setupMicrosd();
-  writeHeaderSDCard();
 }
 
 void writeMonitorSDCard() {

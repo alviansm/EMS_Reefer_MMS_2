@@ -13,6 +13,7 @@ void completeModuleSetup() {
     setupMicrosd();
     setupRtc();
     setupLCD();
+    initializeInitiation();
 }
 
 void completeSerialcomSetup() {
@@ -24,9 +25,9 @@ void calculationLoop() {
     calculateCOP();
     calculatePower();
     calculateUptime();
-    calculatePCM1PickLoad();
-    calculateChargeTime();
-    ecoActivation();
+    // calculatePCM1PickLoad();
+    // calculateChargeTime();
+    // ecoActivation();
 }
 
 void puttingThingsTogether() {

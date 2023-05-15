@@ -148,8 +148,9 @@ void draw_home_screen()
     show_string("PCM (C)", 180, 166, 1, WHITE, BLACK, 1);
     
     //Eco Activated
-    show_string("1/2 TON", 4, 200, 2, GREEN, BLACK, 1);
-    show_string("Eco-Reefer Container", 4, 220, 1, WHITE, BLACK, 1);
+    show_string("Uptime: ", 4, 185, 1, GREEN, BLACK, 1);
+    show_string("0", 4, 200, 1, WHITE, BLACK, 1);
+		show_string("hours", 4, 215, 1, WHITE, BLACK, 1);
     
     //button goto setting
     my_lcd.Set_Draw_color(0, 255, 255);
@@ -187,6 +188,7 @@ void loopLCD() {
 	const char* char_power = calculatedPower.c_str();
 	const char* char_cop = calculatedCOP.c_str();
 	const char* char_temperaturePCM = senseTemperature3.c_str();
+	const char* char_uptime = calculatedUptime.c_str();
 
 	uint16_t i;
   digitalWrite(13, HIGH);
@@ -235,6 +237,10 @@ void loopLCD() {
     my_lcd.Fill_Rectangle(170, 128, 234, 160);
     show_string(char_temperaturePCM, 182, 140, 2, BLACK, BLACK, 1);
     show_string("PCM (C)", 180, 166, 1, WHITE, BLACK, 1);
+
+		my_lcd.Set_Draw_color(0, 0, 255);
+    my_lcd.Fill_Rectangle(0, 200, 96, 215);
+		show_string(char_uptime, 4, 200, 1, WHITE, BLACK, 1);
 	} 
 	
 	//page naviagtion looping
@@ -256,14 +262,17 @@ void loopLCD() {
 		}   
 	} 	
 
-	Serial.println();
-	Serial.print("PAGE: ");
-	Serial.print(page);
-	Serial.println();
-	Serial.print("P.X: ");
-	Serial.print(p.x);
-	Serial.println();
-	Serial.print("P.Y: ");
-	Serial.print(p.y);
+	// Serial.println();
+	// Serial.print("PAGE: ");
+	// Serial.print(page);
+	// Serial.println();
+	// Serial.print("P.X: ");
+	// Serial.print(p.x);
+	// Serial.println();
+	// Serial.print("P.Y: ");
+	// Serial.print(p.y);
+	// Serial.println();
+	// Serial.print("P.Z: ");
+	// Serial.print(p.z);
 
 }

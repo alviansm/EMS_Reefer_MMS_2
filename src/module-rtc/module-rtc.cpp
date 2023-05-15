@@ -9,11 +9,12 @@ String rtc_day = "";
 String rtc_date = "";
 String rtc_clock = "";
 // for timer function
-String baseDate = "";
-String newDate = "";
-String baseTime;
-String newTime = "";
-String timeElapsed = "";
+int interval;
+int previous_time_hour;
+int previous_time_minute;
+int current_time_hour;
+int current_time_minute;
+int calculating_uptime;
 
 void setupRtc() {
   URTCLIB_WIRE.begin();
@@ -22,18 +23,39 @@ void setupRtc() {
   // Comment out below line once you set the date & time.
   // Following line sets the RTC with an explicit date & time
   // for example to set January 13 2022 at 12:56 you would call:
-  // rtc.set(0, 7, 9, 1, 14, 5, 23);
+  // rtc.set(0, 12, 16, 2, 15, 5, 23);
   // rtc.set(second, minute, hour, dayOfWeek, dayOfMonth, month, year)
   // set day of week (1=Sunday, 7=Saturday)
 
-  baseTime = rtc.second();
-  Serial.println();
-  Serial.print("baseTime: ");
-  Serial.print(baseTime);
+  // for timer function
+  calculating_uptime = 0;
+}
+
+void initializeInitiation() {
+  rtc.refresh();
+  interval = 1;
+  previous_time_hour = String(rtc.hour()).toInt();
+  previous_time_minute = String(rtc.minute()).toInt();
+  calculatedUptime = String(0);
 }
 
 void calculateUptime() {
-  
+  // Serial.println();
+  // Serial.print("Hour: ");
+  // Serial.print(previous_time_hour);
+  // Serial.println();
+  // Serial.print("Minute: ");
+  // Serial.print(previous_time_minute);
+  // Serial.println();
+  rtc.refresh();
+  current_time_hour = String(rtc.hour()).toInt();
+  current_time_minute = String(rtc.minute()).toInt();
+
+  if ((current_time_hour - previous_time_hour >= 1) && (current_time_minute - previous_time_minute == 0)) {
+    calculating_uptime++;
+    calculatedUptime = String(calculating_uptime);
+    previous_time_hour = current_time_hour; 
+  }
 }
 
 void calculateChargeTime() {

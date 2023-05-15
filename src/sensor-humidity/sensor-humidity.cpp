@@ -18,13 +18,6 @@ void loopHumiditySensor() {
   hum = dht.readHumidity();
   temp= dht.readTemperature();
   
-  //Print temp and humidity values to serial monitor
-//   Serial.print("Humidity: ");
-//   Serial.print(hum);
-//   Serial.print("%,  Temperature: ");
-//   Serial.print(temp);
-//   Serial.println(" Celsius");
-  
   senseTemperatureHumid = String(temp);
   senseHumid = String(hum);
 }

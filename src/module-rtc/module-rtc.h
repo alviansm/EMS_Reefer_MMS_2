@@ -7,6 +7,7 @@
 
 void setupRtc();
 void determineDay();
+void initializeInitiation();
 void calculateUptime();
 void calculateChargeTime();
 void loopTime();

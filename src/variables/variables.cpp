@@ -42,9 +42,6 @@ String calculatedFP = "-14";
 String calculatedIteration = "0";
 String calculatedPrice = "1444";
 
-// ==== SD Card File Name ====
-String SDCardFileName = "";
-
 // ==== Full Data Row ====
 String fullData = "";
 

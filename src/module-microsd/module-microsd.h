@@ -7,10 +7,7 @@
 #include "variables/variables.h"
 #include "module-buzzer/module-buzzer.h"
 
-void setupMicrosd();
-void randomizeFileName();
-void writeHeaderSDCard();
-void completeSDCardSetup(); // setup()
+void setupMicrosd(); // loop
 void writeMonitorSDCard(); // loop()
 
 #endif
