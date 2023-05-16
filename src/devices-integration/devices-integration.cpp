@@ -25,9 +25,8 @@ void calculationLoop() {
     calculateCOP();
     calculatePower();
     calculateUptime();
-    // calculatePCM1PickLoad();
-    // calculateChargeTime();
-    // ecoActivation();
+    calculateChargeTime();
+    ecoActivation();
 }
 
 void puttingThingsTogether() {

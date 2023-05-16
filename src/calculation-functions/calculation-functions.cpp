@@ -1,5 +1,8 @@
 #include "calculation-functions.h"
 
+int sampelPCM1;
+int sampelPCM2;
+
 void temperature1ToLEnthalpy(){
   // Enthalpy at state 1 is determined by linear regression using equation that obtained by using Freon R-404a saturation table.
   // State 1 of the cycle is supposed to be sat. vapor
@@ -41,26 +44,18 @@ void calculatePCM1PickLoad() {
 }
 
 void ecoActivation() {
-  int sampelPCM1;
-  int sampelPCM2;
-  sampelPCM1 = senseTemperature3.toInt(); // change this later
-  sampelPCM2 = senseTemperature7.toInt();
+  sampelPCM1 = senseTemperature3.toInt(); // make sure the variable is from the correct sensor
+  sampelPCM2 = senseTemperature7.toInt(); // OK - 16.05.2023
 
-  // if (senseTemperatureHumid.toInt() > (-10)) {
-  //   relaystate1 = 1;
-  //   return;
-  // }
-  // if ((sampelPCM1 <= calculatedFP.toInt() && (sampelPCM2 <= calculatedFP.toInt()))) {
-  //   relaystate1 = 0; // turn off the relay for contactor 1 (compressor & condenser)
-  // }
-
-  if (senseHumid.toInt() > 85) {
-    relaystate1 = 0;
+  // turn off vapor compression refrigeration cycle after pch is charged. (14 hours based on the calculation)
+  // if ((calculatedCharging.toInt() == 14) && (sampelPCM1 <= -10) && (sampelPCM2 <= -10)) {
+  if (calculatedCharging.toInt() == 1) { // for demonstration purpose
+    relaystate1 = 0; // turn off compressor & condensor relay
+    calculatedCharging = "0"; // reset PCM charging
     return;
   }
-  if (senseHumid.toInt() < 85) {
-    relaystate1 = 1;
+  if ((sampelPCM1 >= -10) && (sampelPCM2 >= -10)) {
+    relaystate1 = 1; // turn on relay state
     return;
   }
-  return;
 }

@@ -15,6 +15,12 @@ int previous_time_minute;
 int current_time_hour;
 int current_time_minute;
 int calculating_uptime;
+// for timer function - charging PCM
+int previous_time_hour_charging;
+int previous_time_minute_charging;
+int current_time_hour_charging;
+int current_time_minute_charging;
+int calculating_uptime_charging;
 
 void setupRtc() {
   URTCLIB_WIRE.begin();
@@ -23,7 +29,7 @@ void setupRtc() {
   // Comment out below line once you set the date & time.
   // Following line sets the RTC with an explicit date & time
   // for example to set January 13 2022 at 12:56 you would call:
-  // rtc.set(0, 12, 16, 2, 15, 5, 23);
+  rtc.set(0, 0, 23, 3, 16, 5, 23);
   // rtc.set(second, minute, hour, dayOfWeek, dayOfMonth, month, year)
   // set day of week (1=Sunday, 7=Saturday)
 
@@ -36,6 +42,8 @@ void initializeInitiation() {
   interval = 1;
   previous_time_hour = String(rtc.hour()).toInt();
   previous_time_minute = String(rtc.minute()).toInt();
+  previous_time_hour_charging = String(rtc.hour()).toInt();
+  previous_time_minute_charging = String(rtc.minute()).toInt();
   calculatedUptime = String(0);
 }
 
@@ -51,7 +59,7 @@ void calculateUptime() {
   current_time_hour = String(rtc.hour()).toInt();
   current_time_minute = String(rtc.minute()).toInt();
 
-  if ((current_time_hour - previous_time_hour >= 1) && (current_time_minute - previous_time_minute == 0)) {
+  if (((current_time_hour - previous_time_hour >= 1) || (current_time_hour - previous_time_hour == -23)) && (current_time_minute - previous_time_minute == 0)) {
     calculating_uptime++;
     calculatedUptime = String(calculating_uptime);
     previous_time_hour = current_time_hour; 
@@ -59,7 +67,19 @@ void calculateUptime() {
 }
 
 void calculateChargeTime() {
+  rtc.refresh();
+  current_time_hour_charging = String(rtc.hour()).toInt();
+  current_time_minute_charging = String(rtc.minute()).toInt();
 
+  if (((current_time_hour_charging - previous_time_hour_charging >= 1) || (current_time_hour_charging - previous_time_hour_charging == -23)) && (current_time_minute_charging - previous_time_minute_charging == 0)) {
+    calculating_uptime_charging++;
+    calculatedCharging = String(calculating_uptime_charging);
+    previous_time_hour_charging = current_time_hour_charging; 
+  }
+  // reset the charging time is the pcm is discharged. using the relaystate (turn off the vapor compression refrigeration cycle) as parameter
+  if (relaystate1 == 0) {
+    calculating_uptime_charging = 0;
+  }
 }
 
 void determineDay() {

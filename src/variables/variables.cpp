@@ -36,11 +36,11 @@ float tempOutEvap = 0.00;
 float tempInEvap = 0.00;
 String calculatedPower = "";
 String calculatedUptime = "";
-String calculatedChargeTime = "";
 String calculatedPCM1Pickload = "";
 String calculatedFP = "-14";
 String calculatedIteration = "0";
 String calculatedPrice = "1444";
+String calculatedCharging = "0";
 
 // ==== Full Data Row ====
 String fullData = "";

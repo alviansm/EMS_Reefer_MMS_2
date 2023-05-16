@@ -34,11 +34,11 @@ extern float tempOutEvap;
 extern float tempInEvap;
 extern String calculatedPower;
 extern String calculatedUptime;
-extern String calculatedChargeTime;
 extern String calculatedPCM1Pickload;
 extern String calculatedFP;
 extern String calculatedIteration;
 extern String calculatedPrice;
+extern String calculatedCharging;
 extern String fullData;
 extern int currentNextionPage;
 

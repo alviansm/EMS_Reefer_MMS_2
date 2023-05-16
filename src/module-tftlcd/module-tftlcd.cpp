@@ -96,23 +96,11 @@ void draw_home_screen()
     //display status
     my_lcd.Set_Draw_color(220, 255, 255);
     my_lcd.Fill_Circle(288, 32, 16);
-    show_string("COMP", 278, 4, 1, WHITE, BLACK, 1);
+    show_string("PCM", 278, 4, 1, WHITE, BLACK, 1);
 
     my_lcd.Set_Draw_color(220, 255, 255);
     my_lcd.Fill_Circle(246, 32, 16);
-    show_string("COND", 238, 4, 1, WHITE, BLACK, 1);
-
-    my_lcd.Set_Draw_color(220, 255, 255);
-    my_lcd.Fill_Circle(206, 32, 16);
-    show_string("EVAP", 198, 4, 1, WHITE, BLACK, 1);
-
-    my_lcd.Set_Draw_color(220, 255, 255);
-    my_lcd.Fill_Circle(166, 32, 16);
-    show_string("TXV", 158, 4, 1, WHITE, BLACK, 1);
-
-    my_lcd.Set_Draw_color(155, 0, 0);
-    my_lcd.Fill_Circle(126, 32, 16);
-    show_string("IoT", 118, 4, 1, WHITE, BLACK, 1);
+    show_string("V. COMP.", 238, 4, 1, WHITE, BLACK, 1);
 
     //===========================monitoring square=====================
     my_lcd.Set_Draw_color(220, 255, 255);
@@ -147,11 +135,16 @@ void draw_home_screen()
     show_string("-20", 182, 140, 2, BLACK, BLACK, 1);
     show_string("PCM (C)", 180, 166, 1, WHITE, BLACK, 1);
     
-    //Eco Activated
+    //uptime
     show_string("Uptime: ", 4, 185, 1, GREEN, BLACK, 1);
     show_string("0", 4, 200, 1, WHITE, BLACK, 1);
 		show_string("hours", 4, 215, 1, WHITE, BLACK, 1);
     
+    //charging
+    show_string("PCM Charging: ", 52, 185, 1, GREEN, BLACK, 1);
+    show_string("0", 52, 200, 1, WHITE, BLACK, 1);
+		show_string("hours", 52, 215, 1, WHITE, BLACK, 1);
+
     //button goto setting
     my_lcd.Set_Draw_color(0, 255, 255);
     my_lcd.Fill_Rectangle(320, 240, 246, 208);    
@@ -189,6 +182,7 @@ void loopLCD() {
 	const char* char_cop = calculatedCOP.c_str();
 	const char* char_temperaturePCM = senseTemperature3.c_str();
 	const char* char_uptime = calculatedUptime.c_str();
+  const char* char_charging = calculatedCharging.c_str();
 
 	uint16_t i;
   digitalWrite(13, HIGH);
@@ -241,6 +235,11 @@ void loopLCD() {
 		my_lcd.Set_Draw_color(0, 0, 255);
     my_lcd.Fill_Rectangle(0, 200, 96, 215);
 		show_string(char_uptime, 4, 200, 1, WHITE, BLACK, 1);
+
+    //charging
+    my_lcd.Set_Draw_color(0, 0, 255);
+    my_lcd.Fill_Rectangle(52, 200, 148, 215);
+    show_string(char_charging, 52, 200, 1, WHITE, BLACK, 1);
 	} 
 	
 	//page naviagtion looping
