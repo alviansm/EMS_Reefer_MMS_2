@@ -100,7 +100,9 @@ void draw_home_screen()
 
     my_lcd.Set_Draw_color(220, 255, 255);
     my_lcd.Fill_Circle(246, 32, 16);
-    show_string("V. COMP.", 238, 4, 1, WHITE, BLACK, 1);
+    show_string("V.C.", 238, 4, 1, WHITE, BLACK, 1);
+
+    show_string("Data logged.", CENTER, 16, 1, GREEN, BLACK, 1);
 
     //===========================monitoring square=====================
     my_lcd.Set_Draw_color(220, 255, 255);

@@ -29,7 +29,7 @@ void setupRtc() {
   // Comment out below line once you set the date & time.
   // Following line sets the RTC with an explicit date & time
   // for example to set January 13 2022 at 12:56 you would call:
-  rtc.set(0, 0, 23, 3, 16, 5, 23);
+  // rtc.set(0, 53, 18, 3, 16, 5, 23);
   // rtc.set(second, minute, hour, dayOfWeek, dayOfMonth, month, year)
   // set day of week (1=Sunday, 7=Saturday)
 
@@ -76,7 +76,7 @@ void calculateChargeTime() {
     calculatedCharging = String(calculating_uptime_charging);
     previous_time_hour_charging = current_time_hour_charging; 
   }
-  // reset the charging time is the pcm is discharged. using the relaystate (turn off the vapor compression refrigeration cycle) as parameter
+  // reset the charging time if the pcm is discharged. using the relaystate (turn off the vapor compression refrigeration cycle) as parameter
   if (relaystate1 == 0) {
     calculating_uptime_charging = 0;
   }

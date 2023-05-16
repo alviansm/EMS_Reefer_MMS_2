@@ -40,7 +40,7 @@ void calculatePower() {
 }
 
 void calculatePCM1PickLoad() {
-  calculatedPCM1Pickload = "10"; // 6 hours by default
+  calculatedPCM1Pickload = "14"; // 6 hours by default
 }
 
 void ecoActivation() {
@@ -48,13 +48,14 @@ void ecoActivation() {
   sampelPCM2 = senseTemperature7.toInt(); // OK - 16.05.2023
 
   // turn off vapor compression refrigeration cycle after pch is charged. (14 hours based on the calculation)
-  // if ((calculatedCharging.toInt() == 14) && (sampelPCM1 <= -10) && (sampelPCM2 <= -10)) {
-  if (calculatedCharging.toInt() == 1) { // for demonstration purpose
+  if ((calculatedCharging.toInt() == 14) && (sampelPCM1 <= -10) && (sampelPCM2 <= -10)) {
+  // if (calculatedCharging.toInt() == 1) { // for demonstration purpose
     relaystate1 = 0; // turn off compressor & condensor relay
     calculatedCharging = "0"; // reset PCM charging
     return;
   }
-  if ((sampelPCM1 >= -10) && (sampelPCM2 >= -10)) {
+  // if ((sampelPCM1 >= -10) && (sampelPCM2 >= -10)) {
+  if (senseTemperature5.toInt() >= 40) { // for demo purpose
     relaystate1 = 1; // turn on relay state
     return;
   }
