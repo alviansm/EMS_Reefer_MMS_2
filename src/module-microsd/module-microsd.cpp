@@ -11,10 +11,11 @@ File myFile;
 const uint8_t BASE_NAME_SIZE = sizeof(FILE_BASE_NAME) - 1;
 char fileName[] = FILE_BASE_NAME "00.csv";
 
+
 void setupMicrosd() {
   // ==== SETUP FOR MICROSD ====
   if (!SD.begin(CS_PIN)) {
-    Serial.println(F("begin failed"));
+    // Serial.println(F("begin failed"));
     return;
   }
   while (SD.exists(fileName)) {
@@ -24,18 +25,18 @@ void setupMicrosd() {
       fileName[BASE_NAME_SIZE + 1] = '0';
       fileName[BASE_NAME_SIZE]++;
     } else {
-      Serial.println(F("Can't create file name"));
+      // Serial.println(F("Can't create file name"));
       return;
     }
   }
   myFile = SD.open(fileName, FILE_WRITE);
   if (!myFile) {
-    Serial.println(F("open failed"));
+    // Serial.println(F("open failed"));
     return;
   }
   myFile.println("Time_Day, Time_Date, Time_Clock, SenseT1, SenseT2, SenseT3, SenseT4, SenseT5, SenseT6, SenseT7, SenseT8, SenseTH1, SenseRH, SenseCurrent1, SenseCurrent2, voltage, COP, Power, Uptime, PCMFreezingPoint, ChargeTime, Charging, RelayStatus"); // SD Card .CSV header row  
-  Serial.print(F("opened: "));
-  Serial.println(fileName);
+  // Serial.print(F("opened: "));
+  // Serial.println(fileName);
   myFile.close();
 }
 
@@ -88,22 +89,23 @@ void writeMonitorSDCard() {
   fullData.concat(",");
   fullData.concat(String(relaystate1));
 
-  // Testing
+  // Testing & send data in serial communication to esp32
   Serial.println(fullData);
+  
 
   // write data rows
   myFile = SD.open(fileName, FILE_WRITE);
   if (myFile) {    
       // print data to sd card
       myFile.println(fullData);
-      Serial.print("success writing ");
-      Serial.print(fileName);
+      // Serial.print("success writing ");
+      // Serial.print(fileName);
       myFile.close();
     } else {
     // if the file didn't open, print an error:
     buzzerSOSFunc();
-    Serial.print("error writing ");
-    Serial.print(fileName);
-    Serial.println();
+    // Serial.print("error writing ");
+    // Serial.print(fileName);
+    // Serial.println();
   }
 }

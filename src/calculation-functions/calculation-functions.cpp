@@ -54,8 +54,8 @@ void ecoActivation() {
     calculatedCharging = "0"; // reset PCM charging
     return;
   }
-  // if ((sampelPCM1 >= -10) && (sampelPCM2 >= -10)) {
-  if (senseTemperature5.toInt() >= 40) { // for demo purpose
+  // if ((sampelPCM1 >= -10) && (sampelPCM2 >= -10) && (relaystate == 0)) { // if pcm is discharged to -10, and relay for vapor-compression is off, then turn on it's relay for charging again
+  if (senseTemperature5.toInt() >= 40) { // for demo purpose, use ambient temperature
     relaystate1 = 1; // turn on relay state
     return;
   }

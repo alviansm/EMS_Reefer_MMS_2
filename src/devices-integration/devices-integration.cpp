@@ -37,6 +37,7 @@ void puttingThingsTogether() {
     loopCurrentSensor2();
     relayStandBy();
     writeMonitorSDCard();
+    sendDataToESP();
     // updateNextionDashboard();
     // updateNextionDetails();
 }

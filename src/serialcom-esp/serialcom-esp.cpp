@@ -1,11 +1,9 @@
 #include "serialcom-esp.h"
 
-SoftwareSerial arduino(13, 12); // RX, TX
-
 void setupESP32() {
-    arduino.begin(9600);
+	Serial2.begin(4800);
 }
 
 void sendDataToESP() {
-    arduino.println(fullData);
+	Serial2.println(fullData);
 }

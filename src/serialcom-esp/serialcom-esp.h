@@ -7,5 +7,6 @@
 #include "variables/variables.h"
 
 void setupESP32();
+void sendDataToESP();
 
 #endif

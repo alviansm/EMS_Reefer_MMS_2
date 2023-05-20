@@ -17,22 +17,22 @@ void printAddress(DeviceAddress deviceAddress) {
 void setupTemperatureSensor() {
   sensors.begin();
   numberOfDevices = sensors.getDeviceCount();
-  Serial.print("Locating devices...");
-  Serial.print("Found ");
-  Serial.print(numberOfDevices, DEC);
-  Serial.println(" devices.");
+  // Serial.print("Locating devices...");
+  // Serial.print("Found ");
+  // Serial.print(numberOfDevices, DEC);
+  // Serial.println(" devices.");
   for(int i=0;i<numberOfDevices; i++) {
     // Search the wire for address
     if(sensors.getAddress(tempDeviceAddress, i)) {
-      Serial.print("Found device ");
-      Serial.print(i, DEC);
-      Serial.print(" with address: ");
-      printAddress(tempDeviceAddress);
-      Serial.println();
+      // Serial.print("Found device ");
+      // Serial.print(i, DEC);
+      // Serial.print(" with address: ");
+      // printAddress(tempDeviceAddress);
+      // Serial.println();
     } else {
-      Serial.print("Found ghost device at ");
-      Serial.print(i, DEC);
-      Serial.print(" but could not detect address. Check power and cabling");
+      // Serial.print("Found ghost device at ");
+      // Serial.print(i, DEC);
+      // Serial.print(" but could not detect address. Check power and cabling");
     }
   }
 }
