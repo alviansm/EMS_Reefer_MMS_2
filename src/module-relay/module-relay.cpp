@@ -11,21 +11,21 @@ void setupRelay() {
   pinMode(relay_2, OUTPUT);
   pinMode(relay_3, OUTPUT);
   pinMode(relay_4, OUTPUT);
-  digitalWrite(relay_1, LOW);
-  digitalWrite(relay_2, LOW);
-  digitalWrite(relay_3, LOW);
-  digitalWrite(relay_4, LOW);    
+  digitalWrite(relay_1, HIGH);
+  digitalWrite(relay_2, HIGH);
+  digitalWrite(relay_3, HIGH);
+  digitalWrite(relay_4, HIGH);    
 }
 
 void relayOn1() {
   relaystate1 = 1;
-  digitalWrite(relay_1, LOW);
+  digitalWrite(relay_1, HIGH);
   return;
 }
 
 void relayOff1() {
   relaystate1 = 0;
-  digitalWrite(relay_1, HIGH);
+  digitalWrite(relay_1, LOW);
   return;
 }
 

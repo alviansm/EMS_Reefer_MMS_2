@@ -118,7 +118,7 @@ void draw_home_screen()
     my_lcd.Set_Draw_color(220, 255, 255);
     my_lcd.Fill_Rectangle(170, 64, 234, 96);
     show_string("0,6", 182, 74, 2, BLACK, BLACK, 1);
-    show_string("POWER (kW)", 174, 102, 1, WHITE, BLACK, 1);
+    show_string("POWER (W)", 174, 102, 1, WHITE, BLACK, 1);
     
     my_lcd.Set_Draw_color(220, 255, 255);
     my_lcd.Fill_Rectangle(252, 64, 314, 96);
@@ -217,7 +217,7 @@ void loopLCD() {
 		my_lcd.Set_Draw_color(220, 255, 255);
     my_lcd.Fill_Rectangle(170, 64, 234, 96);
     show_string(char_power, 182, 74, 2, BLACK, BLACK, 1);
-    show_string("POWER (kW)", 174, 102, 1, WHITE, BLACK, 1);
+    show_string("POWER (W)", 174, 102, 1, WHITE, BLACK, 1);
 
 		my_lcd.Set_Draw_color(220, 255, 255);
     my_lcd.Fill_Rectangle(252, 64, 314, 96);

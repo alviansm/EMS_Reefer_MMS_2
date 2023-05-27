@@ -34,7 +34,7 @@ void setupMicrosd() {
     // Serial.println(F("open failed"));
     return;
   }
-  myFile.println("Time_Day, Time_Date, Time_Clock, SenseT1, SenseT2, SenseT3, SenseT4, SenseT5, SenseT6, SenseT7, SenseT8, SenseTH1, SenseRH, SenseCurrent1, SenseCurrent2, voltage, COP, Power, Uptime, PCMFreezingPoint, ChargeTime, Charging, RelayStatus"); // SD Card .CSV header row  
+  myFile.println("Time_Day, Time_Date, Time_Clock, SenseT1, SenseT2, SenseT3, SenseT4, SenseT5, SenseT6, SenseT7, SenseT8, SenseTH1, SenseRH, SenseCurrent1, SenseCurrent2, voltage, COP, Power, Uptime, PCMFreezingPoint, ChargeTime, Charging, RelayStatus, sensePressure1"); // SD Card .CSV header row  
   // Serial.print(F("opened: "));
   // Serial.println(fileName);
   myFile.close();
@@ -88,11 +88,12 @@ void writeMonitorSDCard() {
   fullData.concat(calculatedCharging);
   fullData.concat(",");
   fullData.concat(String(relaystate1));
+  fullData.concat(",");
+  fullData.concat(String(sensePressure));
 
   // Testing & send data in serial communication to esp32
   Serial.println(fullData);
   
-
   // write data rows
   myFile = SD.open(fileName, FILE_WRITE);
   if (myFile) {    

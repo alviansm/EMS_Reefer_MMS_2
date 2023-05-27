@@ -99,29 +99,29 @@ Notes: ***Power connection not included, 5 V for modules and sensors***
 # ToDos
 ## Clean Code (Split) | Module & Sensor Integration
 - [X] Sensor Temperature
-- [ ] Sensor humidity
+- [X] Sensor humidity -> CHanged, from DHT22 to DHT21
 - [X] Sensor current (2) -> Need recallibration
 - [X] Modul buzzer (2)
 - [X] Module Relay -> Need control functions
 - [X] Module microsd
 - [X] Module real-time clock
 - [X] Module nextion
-- [ ] Module esp32
+- [X] Module esp32
 - [X] Integration variables
 - [X] MicroSD Writing
 
 ## Devices Status 
-- [ ] Device status trough LED
+- [ ] Device status trough LED (Skip)
 
 ## Functions
-- [ ] COP calculation
-- [ ] Power calculation
-- [ ] Enthalpy conversion calculation
-- [ ] PCM freezing point
-- [ ] Pickload
+- [X] COP calculation
+- [X] Power calculation
+- [X] Enthalpy conversion calculation
+- [X] PCM freezing point
+- [X] Pickload
 
 ## Sensing Integration
-- [ ] Relay state
-- [ ] Sensor variables compilations
-- [ ] Send sensor variables and relay state variables to internet server
-- [ ] Sens sensor variables and relay state variables to display
+- [X] Relay state
+- [X] Sensor variables compilations
+- [X] Send sensor variables and relay state variables to internet server
+- [X] Sens sensor variables and relay state variables to display

@@ -35,6 +35,7 @@ void puttingThingsTogether() {
     loopHumiditySensor();
     loopCurrentSensor1();
     loopCurrentSensor2();
+    sensorPressureLoop();
     relayStandBy();
     writeMonitorSDCard();
     sendDataToESP();

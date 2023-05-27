@@ -4,12 +4,12 @@
 EnergyMonitor emon2;
 
 void setupCurrentSensor2() {
-    emon2.current(11, 100.11); 
+    emon2.current(11, 1.05); 
 }
 
 void loopCurrentSensor2() {
-    int Irms2 = (emon2.calcIrms(1480)/100);
+    float Irms2 = (emon2.calcIrms(1480));
 
     // Assign to global sensing variables
-    senseCurrent2 = String(Irms2);
+    senseCurrent2 = Irms2;
 }

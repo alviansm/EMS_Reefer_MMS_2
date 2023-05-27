@@ -36,7 +36,7 @@ void calculateCOP() {
 }
 
 void calculatePower() {
-  calculatedPower = String(((senseCurrent1.toFloat())*220.00*0.80));
+  calculatedPower = String((senseCurrent2)*220.00*0.80);
 }
 
 void calculatePCM1PickLoad() {
@@ -48,14 +48,14 @@ void ecoActivation() {
   sampelPCM2 = senseTemperature7.toInt(); // OK - 16.05.2023
 
   // turn off vapor compression refrigeration cycle after pch is charged. (14 hours based on the calculation)
-  if ((calculatedCharging.toInt() == 14) && (sampelPCM1 <= -10) && (sampelPCM2 <= -10)) {
-  // if (calculatedCharging.toInt() == 1) { // for demonstration purpose
+  // if ((calculatedCharging.toInt() == 14) && (sampelPCM1 <= -10) && (sampelPCM2 <= -10)) {
+  if (calculatedCharging.toInt() == 14) { // for demonstration purpose
     relaystate1 = 0; // turn off compressor & condensor relay
     calculatedCharging = "0"; // reset PCM charging
     return;
   }
-  // if ((sampelPCM1 >= -10) && (sampelPCM2 >= -10) && (relaystate == 0)) { // if pcm is discharged to -10, and relay for vapor-compression is off, then turn on it's relay for charging again
-  if (senseTemperature5.toInt() >= 40) { // for demo purpose, use ambient temperature
+  if ((sampelPCM1 >= -10) && (sampelPCM2 >= -10) && (relaystate1 == 0)) { // if pcm is discharged to -10, and relay for vapor-compression is off, then turn on it's relay for charging again
+  // if (senseTemperature5.toInt() >= 40) { // for demo purpose, use ambient temperature
     relaystate1 = 1; // turn on relay state
     return;
   }

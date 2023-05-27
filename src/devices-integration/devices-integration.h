@@ -8,6 +8,7 @@
 #include "sensor-current1/sensor-current1.h"
 #include "sensor-current2/sensor-current2.h"
 #include "sensor-humidity/sensor-humidity.h"
+#include "sensor-pressure1/sensor-pressure1.h"
 
 // modules
 #include "module-buzzer/module-buzzer.h"
