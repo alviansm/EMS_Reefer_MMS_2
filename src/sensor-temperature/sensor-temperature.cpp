@@ -7,6 +7,16 @@ DallasTemperature sensors(&oneWire); // Pass our oneWire reference to Dallas Tem
 int numberOfDevices; // Number of temperature devices found
 DeviceAddress tempDeviceAddress; // We'll use this variable to store a found device address
 
+int prev_senseTemperature1 = 0;
+int prev_senseTemperature2 = 0;
+int prev_senseTemperature3 = 0;
+int prev_senseTemperature4 = 0;
+int prev_senseTemperature5 = 0;
+int prev_senseTemperature6 = 0;
+int prev_senseTemperature7 = 0;
+int prev_senseTemperature8 = 0;
+int iteration_temperature = 0;
+
 void printAddress(DeviceAddress deviceAddress) {
   for (uint8_t i = 0; i < 8; i++) {
     if (deviceAddress[i] < 16) Serial.print("0");
@@ -47,34 +57,61 @@ void loopTemperatureSensors() {
     int tempC = sensors.getTempC(tempDeviceAddress);
     // Serial.print(tempC);
     // Serial.print(","); 
+    // Assign initial iteration
+    if (iteration_temperature <= 60) {
+      if (i == 0) {
+        senseTemperature1 = String(tempC);
+      }
+      if (i == 1) {
+        senseTemperature2 = String(tempC);
+      }
+      if (i == 2) {
+        senseTemperature3 = String(tempC);
+      }
+      if (i == 3) {
+        senseTemperature4 = String(tempC);
+      }
+      if (i == 4) {
+        senseTemperature5 = String(tempC);
+      }
+      if (i == 5) {
+        senseTemperature6 = String(tempC);
+      }
+      if (i == 6) {
+        senseTemperature7 = String(tempC);
+      }
+      if (i == 7) {
+        senseTemperature8 = String(tempC);
+      }
+    }
 
-    // Assign to sensing temperature
-    if (i == 0 ) {
+    if ((i == 0) && (tempC != -127) && ((tempC - senseTemperature1.toInt() >= -5) && (tempC - senseTemperature1.toInt() <= 5))) {
       senseTemperature1 = String(tempC);
     }
-    if (i == 1 ) {
+    if ((i == 1) && (tempC != -127) && ((tempC - senseTemperature2.toInt() >= -5) && (tempC - senseTemperature2.toInt() <= 5))) {
       senseTemperature2 = String(tempC);
     }
-    if (i == 2 ) {
+    if ((i == 2) && (tempC != -127) && ((tempC - senseTemperature3.toInt() >= -5) && (tempC - senseTemperature3.toInt() <= 5))) {
       senseTemperature3 = String(tempC);
     }
-    if (i == 3 ) {
+    if ((i == 3) && (tempC != -127) && ((tempC - senseTemperature4.toInt() >= -5) && (tempC - senseTemperature4.toInt() <= 5))) {
       senseTemperature4 = String(tempC);
     }
-    if (i == 4 ) {
+    if ((i == 4) && (tempC != -127) && ((tempC - senseTemperature5.toInt() >= -5) && (tempC - senseTemperature5.toInt() <= 5))) {
       senseTemperature5 = String(tempC);
     }
-    if (i == 5 ) {
+    if ((i == 5) && (tempC != -127) && ((tempC - senseTemperature6.toInt() >= -5) && (tempC - senseTemperature6.toInt() <= 5))) {
       senseTemperature6 = String(tempC);
-    }  
-    if (i == 6 ) {
+    }
+    if ((i == 6) && (tempC != -127) && ((tempC - senseTemperature7.toInt() >= -5) && (tempC - senseTemperature7.toInt() <= 5))) {
       senseTemperature7 = String(tempC);
-    }    
-    if (i == 7 ) {
+    }
+    if ((i == 7) && (tempC != -127) && ((tempC - senseTemperature8.toInt() >= -5) && (tempC - senseTemperature8.toInt() <= 5))) {
       senseTemperature8 = String(tempC);
     }
 
     }
   // Serial.println();
   }
+  iteration_temperature++;
 }

@@ -21,7 +21,7 @@ extern String senseHumid;
 extern float senseCurrent1;
 extern float senseCurrent2;
 extern String senseVoltage;
-extern float sensePressure;
+extern String sensePressure;
 extern int relaystate1;
 extern int relaystate2;
 extern int relaystate3;

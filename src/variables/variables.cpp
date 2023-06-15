@@ -19,7 +19,7 @@ String senseHumid = "";
 float senseCurrent1 = 0;
 float senseCurrent2 = 0;
 String senseVoltage = "220.00";
-float sensePressure = 0;
+String sensePressure = "";
 
 // ==== RELAY STATE VARIABELS ====
 int relaystate1 = 1;
@@ -36,7 +36,7 @@ float enthalpy1 = 0.00;
 float tempOutEvap = 0.00;
 float tempInEvap = 0.00;
 String calculatedPower = "";
-String calculatedUptime = "";
+String calculatedUptime = "14";
 String calculatedPCM1Pickload = "";
 String calculatedFP = "-15";
 String calculatedIteration = "0";

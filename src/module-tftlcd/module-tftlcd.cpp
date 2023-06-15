@@ -123,7 +123,7 @@ void draw_home_screen()
     my_lcd.Set_Draw_color(220, 255, 255);
     my_lcd.Fill_Rectangle(252, 64, 314, 96);
     show_string("2,44", 262, 74, 2, BLACK, BLACK, 1);
-    show_string("COP", 272, 102, 1, WHITE, BLACK, 1);
+    show_string("I. KOND. (C)", 252, 102, 1, WHITE, BLACK, 1);
 
     //relative humidity
     my_lcd.Set_Draw_color(220, 255, 255);
@@ -185,6 +185,7 @@ void loopLCD() {
 	const char* char_temperaturePCM = senseTemperature3.c_str();
 	const char* char_uptime = calculatedUptime.c_str();
   const char* char_charging = calculatedCharging.c_str();
+  const char* char_pressure1 = senseTemperature6.c_str();
 
 	uint16_t i;
   digitalWrite(13, HIGH);
@@ -221,8 +222,8 @@ void loopLCD() {
 
 		my_lcd.Set_Draw_color(220, 255, 255);
     my_lcd.Fill_Rectangle(252, 64, 314, 96);
-    show_string(char_cop, 262, 74, 2, BLACK, BLACK, 1);
-    show_string("COP", 272, 102, 1, WHITE, BLACK, 1);
+    show_string(char_pressure1, 262, 74, 2, BLACK, BLACK, 1);
+    show_string("I. KOND. (C)", 252, 102, 1, WHITE, BLACK, 1);
 		
     my_lcd.Set_Draw_color(220, 255, 255);
     my_lcd.Fill_Rectangle(87, 128, 151, 160);
