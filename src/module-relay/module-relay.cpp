@@ -18,6 +18,7 @@ void setupRelay() {
 }
 
 void relayOn1() {
+  delay(60000);
   relaystate1 = 1;
   digitalWrite(relay_1, HIGH);
   return;
@@ -29,13 +30,49 @@ void relayOff1() {
   return;
 }
 
+void relayOn2() {
+  delay(60000);
+  relaystate2 = 1;
+  digitalWrite(relay_2, HIGH);
+  return;
+}
+
+void relayOff2() {
+  relaystate2 = 0;
+  digitalWrite(relay_2, LOW);
+  return;
+}
+
+void relayOn3() {
+  delay(5000);
+  relaystate3 = 1;
+  digitalWrite(relay_3, HIGH);
+  return;
+}
+
+void relayOff3() {
+  relaystate3 = 0;
+  digitalWrite(relay_3, LOW);
+  return;
+}
+
 void relayStandBy() {
   if (relaystate1 == 1) {
     relayOn1();
-    return;
   }
   if (relaystate1 == 0) {
     relayOff1();
-    return;
+  }
+  if (relaystate2 == 1) {
+    relayOn2();
+  }
+  if (relaystate2 == 0) {
+    relayOff2();
+  }
+  if (relaystate3 == 1) {
+    relayOn3();
+  }
+  if (relaystate3 == 0) {
+    relayOff3();
   }
 }

@@ -59,28 +59,28 @@ void loopTemperatureSensors() {
     // Serial.print(","); 
     // Assign initial iteration
     if (iteration_temperature <= 60) {
-      if (i == 0) {
+      if (i == 0 && tempC != -127) {
         senseTemperature1 = String(tempC);
       }
-      if (i == 1) {
+      if (i == 1 && tempC != -127) {
         senseTemperature2 = String(tempC);
       }
-      if (i == 2) {
+      if (i == 2 && tempC != -127) {
         senseTemperature3 = String(tempC);
       }
-      if (i == 3) {
+      if (i == 3 && tempC != -127) {
         senseTemperature4 = String(tempC);
       }
-      if (i == 4) {
+      if (i == 4 && tempC != -127) {
         senseTemperature5 = String(tempC);
       }
-      if (i == 5) {
+      if (i == 5 && tempC != -127) {
         senseTemperature6 = String(tempC);
       }
-      if (i == 6) {
+      if (i == 6 && tempC != -127) {
         senseTemperature7 = String(tempC);
       }
-      if (i == 7) {
+      if (i == 7 && tempC != -127) {
         senseTemperature8 = String(tempC);
       }
     }

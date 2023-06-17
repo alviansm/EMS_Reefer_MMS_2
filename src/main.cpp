@@ -14,11 +14,7 @@ void setup() {
 }
 
 void loop() {
-  unsigned long lcdTime = millis();
-  if (lcdTime > 50) {
-    loopLCD();
-  }
-
+  loopLCD();
   calculationLoop();
   puttingThingsTogether();
 }

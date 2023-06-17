@@ -45,6 +45,7 @@ String calculatedCharging = "0";
 
 // ==== Full Data Row ====
 String fullData = "";
+bool is_eco_active = false;
 
 // ==== Nextion Display Variables ====
 int currentNextionPage = 0;

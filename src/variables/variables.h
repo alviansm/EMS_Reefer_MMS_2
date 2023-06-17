@@ -42,5 +42,6 @@ extern String calculatedPrice;
 extern String calculatedCharging;
 extern String fullData;
 extern int currentNextionPage;
+extern bool is_eco_active;
 
 #endif

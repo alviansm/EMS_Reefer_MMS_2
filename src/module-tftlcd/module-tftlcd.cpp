@@ -50,6 +50,7 @@ uint32_t calx, caly, cals;
 char buf[13];
 char page = '0';
 int randNm;
+int iteration = 0;
 
 //====DISPLAY PAGES FUNCTIONS====
 void show_string(uint8_t *str,int16_t x,int16_t y,uint8_t csize,uint16_t fc, uint16_t bc,boolean mode)
@@ -86,6 +87,7 @@ boolean is_pressed(int16_t x1,int16_t y1,int16_t x2,int16_t y2,int16_t px,int16_
 void draw_home_screen()
 {
     my_lcd.Fill_Screen(BLUE);
+
     // CIRCLE ACTIVE COLOR LIGHT BLUE (186, 230, 253)
     // CIRCLE INACTIVE COLOR LIGHT GRAY (203, 213, 225)
   
@@ -153,9 +155,167 @@ void draw_home_screen()
     show_string("->", 270, 220, 2, BLACK, BLACK, 2);
 }
 
-void show_relay_menu() {
-	//
-	
+void draw_monitoring_screen() {
+	my_lcd.Fill_Screen(BLUE);
+  
+  // T1 --- 1       
+  my_lcd.Set_Draw_color(220, 255, 255);
+  my_lcd.Fill_Rectangle(4, 4, 68, 36);
+  show_string("0", 12, 12, 2, BLACK, BLACK, 1);
+  show_string("T1 (C)", 9, 38, 1, WHITE, BLACK, 1);
+  // T2
+  my_lcd.Set_Draw_color(220, 255, 255);
+  my_lcd.Fill_Rectangle(87, 4, 151, 36);
+  show_string("0", 95, 12, 2, BLACK, BLACK, 1);
+  show_string("T2 (C)", 92, 38, 1, WHITE, BLACK, 1);
+  // T3
+  my_lcd.Set_Draw_color(220, 255, 255);
+  my_lcd.Fill_Rectangle(170, 4, 234, 36);
+  show_string("0", 178, 12, 2, BLACK, BLACK, 1);
+  show_string("T3 (C)", 176, 38, 1, WHITE, BLACK, 1);
+  // T4
+  my_lcd.Set_Draw_color(220, 255, 255);
+  my_lcd.Fill_Rectangle(252, 4, 314, 36);
+  show_string("0", 260, 12, 2, BLACK, BLACK, 1);
+  show_string("T4 (C)", 252, 38, 1, WHITE, BLACK, 1);
+  // T5 --- 2
+  my_lcd.Set_Draw_color(220, 255, 255);
+  my_lcd.Fill_Rectangle(4, 52, 68, 84);
+  show_string("0", 12, 60, 2, BLACK, BLACK, 1);
+  show_string("T5 (C)", 9, 86, 1, WHITE, BLACK, 1);
+  // T6
+  my_lcd.Set_Draw_color(220, 255, 255);
+  my_lcd.Fill_Rectangle(87, 52, 151, 84);
+  show_string("0", 95, 60, 2, BLACK, BLACK, 1);
+  show_string("T6 (C)", 92, 86, 1, WHITE, BLACK, 1);
+  // T7
+  my_lcd.Set_Draw_color(220, 255, 255);
+  my_lcd.Fill_Rectangle(170, 52, 234, 84);
+  show_string("0", 178, 60, 2, BLACK, BLACK, 1);
+  show_string("T7 (C)", 176, 86, 1, WHITE, BLACK, 1);
+  // Current 1
+  my_lcd.Set_Draw_color(220, 255, 255);
+  my_lcd.Fill_Rectangle(252, 52, 314, 84);
+  show_string("0", 260, 60, 2, BLACK, BLACK, 1);
+  show_string("I1 (A)", 252, 86, 1, WHITE, BLACK, 1);
+  // Current 2 --- 3
+  my_lcd.Set_Draw_color(220, 255, 255);
+  my_lcd.Fill_Rectangle(4, 100, 68, 132);
+  show_string("0", 12, 108, 2, BLACK, BLACK, 1);
+  show_string("I2 (A)", 9, 134, 1, WHITE, BLACK, 1);
+  // TH
+  my_lcd.Set_Draw_color(220, 255, 255);
+  my_lcd.Fill_Rectangle(87, 100, 151, 132);
+  show_string("0", 95, 108, 2, BLACK, BLACK, 1);
+  show_string("T.INS. (C)", 92, 134, 1, WHITE, BLACK, 1);
+  // HUMID
+  my_lcd.Set_Draw_color(220, 255, 255);
+  my_lcd.Fill_Rectangle(170, 100, 234, 132);
+  show_string("0", 178, 108, 2, BLACK, BLACK, 1);
+  show_string("RH (%)", 176, 134, 1, WHITE, BLACK, 1);
+  // T8
+  my_lcd.Set_Draw_color(220, 255, 255);
+  my_lcd.Fill_Rectangle(252, 100, 314, 132);
+  show_string("0", 260, 108, 2, BLACK, BLACK, 1);
+  show_string("T8 (C)", 256, 134, 1, WHITE, BLACK, 1);
+  // T9 ---- 4
+  my_lcd.Set_Draw_color(220, 255, 255);
+  my_lcd.Fill_Rectangle(4, 148, 68, 180);
+  show_string("0", 12, 156, 2, BLACK, BLACK, 1);
+  show_string("T9 (C)", 9, 182, 1, WHITE, BLACK, 1);
+  // T10
+  my_lcd.Set_Draw_color(220, 255, 255);
+  my_lcd.Fill_Rectangle(87, 148, 151, 180);
+  show_string("0", 95, 156, 2, BLACK, BLACK, 1);
+  show_string("T10 (C)", 92, 182, 1, WHITE, BLACK, 1);
+  // T11
+  my_lcd.Set_Draw_color(220, 255, 255);
+  my_lcd.Fill_Rectangle(170, 148, 234, 180);
+  show_string("0", 178, 156, 2, BLACK, BLACK, 1);
+  show_string("T11 (C)", 176, 182, 1, WHITE, BLACK, 1);
+  // PT1
+  my_lcd.Set_Draw_color(220, 255, 255);
+  my_lcd.Fill_Rectangle(252, 148, 314, 180);
+  show_string("0", 260, 156, 2, BLACK, BLACK, 1);
+  show_string("PT1 (BAR)", 252, 182, 1, WHITE, BLACK, 1);
+  // PT2 ---- 5
+  // PT3
+  // PT4
+
+	// Navigation Button -- NEXT
+  my_lcd.Set_Draw_color(0, 255, 255);
+  my_lcd.Fill_Rectangle(320, 240, 246, 208);    
+  show_string("->", 270, 220, 2, BLACK, BLACK, 2);
+
+  // Navigation Button -- BACK
+  my_lcd.Set_Draw_color(0, 255, 255);
+  my_lcd.Fill_Rectangle(74, 240, 0, 208);    
+  show_string("<-", 24, 220, 2, BLACK, BLACK, 2);
+}
+
+void draw_control_screen()
+{
+    my_lcd.Fill_Screen(BLUE);
+
+    show_string("KONTROL", CENTER, 4, 2, GREEN, BLACK, 1);
+
+    //===========================monitoring square=====================
+    my_lcd.Set_Draw_color(220, 255, 255);
+    my_lcd.Fill_Rectangle(4, 24, 68, 56);
+    show_string("0", 12, 32, 2, BLACK, BLACK, 1);
+    show_string("PT2 (BAR)", 5, 60, 1, WHITE, BLACK, 1);
+
+    my_lcd.Set_Draw_color(220, 255, 255);
+    my_lcd.Fill_Rectangle(87, 24, 151, 56);
+    show_string("0", 95, 32, 2, BLACK, BLACK, 1);
+    show_string("PT3 (BAR)", 92, 60, 1, WHITE, BLACK, 1);
+
+    my_lcd.Set_Draw_color(220, 255, 255);
+    my_lcd.Fill_Rectangle(170, 24, 234, 56);
+    show_string("0", 178, 32, 2, BLACK, BLACK, 1);
+    show_string("PT4 (BAR)", 174, 60, 1, WHITE, BLACK, 1);
+
+    my_lcd.Set_Draw_color(220, 255, 255);
+    my_lcd.Fill_Rectangle(252, 24, 314, 56);
+    show_string("0", 260, 32, 2, BLACK, BLACK, 1);
+    show_string("I4 (A)", 264, 60, 1, WHITE, BLACK, 1);
+
+    my_lcd.Set_Draw_color(0, 255, 0);
+    my_lcd.Fill_Rectangle(4, 72, 100, 105);
+    show_string("NYALA", 12, 80, 1, BLACK, BLACK, 1);
+    show_string("KOMPRESOR LOW STATE", 104, 88, 1, WHITE, BLACK, 1);
+
+    my_lcd.Set_Draw_color(0, 255, 0);
+    my_lcd.Fill_Rectangle(4, 117, 100, 149);
+    show_string("NYALA", 12, 125, 1, BLACK, BLACK, 1);
+    show_string("KOMPRESOR HIGH STATE", 104, 133, 1, WHITE, BLACK, 1);
+
+    my_lcd.Set_Draw_color(0, 255, 0);
+    my_lcd.Fill_Rectangle(4, 161, 100, 193);
+    show_string("NYALA", 12, 169, 1, BLACK, BLACK, 1);
+    show_string("FAN EVAP", 104, 177, 1, WHITE, BLACK, 1);
+
+    my_lcd.Set_Draw_color(0, 255, 0);
+    my_lcd.Fill_Rectangle(4, 205, 100, 237);
+    show_string("NYALA", 12, 213, 1, BLACK, BLACK, 1);
+    show_string("MODE ECO", 104, 221, 1, WHITE, BLACK, 1);
+
+    //button goto setting
+    my_lcd.Set_Draw_color(0, 255, 255);
+    my_lcd.Fill_Rectangle(320, 240, 246, 208);    
+    show_string("->", 270, 220, 2, BLACK, BLACK, 2);
+}
+
+void draw_loading_screen() {
+  my_lcd.Fill_Screen(BLUE);
+  my_lcd.Set_Draw_color(0, 0, 0);
+  show_string("Memuat Halaman...", 60, 120, 2, BLACK, BLACK, 2);
+}
+
+void draw_loading_process() {
+  my_lcd.Fill_Screen(BLUE);
+  my_lcd.Set_Draw_color(0, 0, 0);
+  show_string("Memproses Perintah...", 40, 120, 2, BLACK, BLACK, 2);
 }
 
 /*
@@ -196,7 +356,20 @@ void loopLCD() {
   pinMode(YP, OUTPUT);
 	
 	// update variables
-	if (page == '0') {
+  if (page == '0' && iteration == 0) {
+    draw_home_screen();
+    iteration = 1;
+  }
+  if (page == '1' && iteration == 0) {
+    draw_monitoring_screen();
+    iteration = 1;    
+  }
+  if (page == '2' && iteration == 0) {
+    draw_control_screen();
+    iteration = 1;    
+  }
+
+	if (page == '0' && iteration == 1) {
 		my_lcd.Set_Draw_color(0, 0, 255);
     my_lcd.Fill_Rectangle(0, 0, 96, 24);
 		show_string(char_senseDate, LEFT, 6, 2, WHITE, BLACK, 1);
@@ -244,37 +417,175 @@ void loopLCD() {
     my_lcd.Fill_Rectangle(52, 200, 148, 215);
     show_string(char_charging, 52, 200, 1, WHITE, BLACK, 1);
 	} 
+
+  if (page == '2' && iteration == 1) {
+    if (relaystate1 == 0) {
+      my_lcd.Set_Draw_color(255, 0, 0);
+      my_lcd.Fill_Rectangle(4, 72, 100, 105);
+      show_string("MATI", 12, 80, 1, BLACK, BLACK, 1);
+      show_string("KOMPRESOR LOW STATE", 104, 88, 1, WHITE, BLACK, 1);
+    }
+    if (relaystate1 == 1) {
+      my_lcd.Set_Draw_color(0, 255, 0);
+      my_lcd.Fill_Rectangle(4, 72, 100, 105);
+      show_string("NYALA", 12, 80, 1, BLACK, BLACK, 1);
+      show_string("KOMPRESOR LOW STATE", 104, 88, 1, WHITE, BLACK, 1);
+    }
+
+    if (relaystate2 == 0) {
+      my_lcd.Set_Draw_color(255, 0, 0);
+      my_lcd.Fill_Rectangle(4, 117, 100, 149);
+      show_string("MATI", 12, 125, 1, BLACK, BLACK, 1);
+      show_string("KOMPRESOR HIGH STATE", 104, 133, 1, WHITE, BLACK, 1);
+    }
+    if (relaystate2 == 1) {
+      my_lcd.Set_Draw_color(0, 255, 0);
+      my_lcd.Fill_Rectangle(4, 117, 100, 149);
+      show_string("NYALA", 12, 125, 1, BLACK, BLACK, 1);
+      show_string("KOMPRESOR HIGH STATE", 104, 133, 1, WHITE, BLACK, 1);
+    }
+
+    if (relaystate3 == 0) {
+      my_lcd.Set_Draw_color(255, 0, 0);
+      my_lcd.Fill_Rectangle(4, 161, 100, 193);
+      show_string("MATI", 12, 169, 1, BLACK, BLACK, 1);
+      show_string("FAN EVAP", 104, 177, 1, WHITE, BLACK, 1);
+    }
+    if (relaystate3 == 1) {
+      my_lcd.Set_Draw_color(0, 255, 0);
+      my_lcd.Fill_Rectangle(4, 161, 100, 193);
+      show_string("NYALA", 12, 169, 1, BLACK, BLACK, 1);
+      show_string("FAN EVAP", 104, 177, 1, WHITE, BLACK, 1);
+    }    
+
+    if (is_eco_active) {
+      my_lcd.Set_Draw_color(0, 255, 0);
+      my_lcd.Fill_Rectangle(4, 205, 100, 237);
+      show_string("NYALA", 12, 213, 1, BLACK, BLACK, 1);
+      show_string("MODE ECO", 104, 221, 1, WHITE, BLACK, 1);
+    }
+    if (!is_eco_active) {
+      my_lcd.Set_Draw_color(255, 0, 0);
+      my_lcd.Fill_Rectangle(4, 205, 100, 237);
+      show_string("MATI", 12, 213, 1, BLACK, BLACK, 1);
+      show_string("MODE ECO", 104, 221, 1, WHITE, BLACK, 1);
+    }
+  }
 	
 	//page naviagtion looping
 	if (p.z > MINPRESSURE && p.z < MAXPRESSURE) {
 		p.x = map(p.x, TS_MINX, TS_MAXX, 0, my_lcd.Get_Display_Width());
 		p.y = map(p.y, TS_MINY, TS_MAXY, 0, my_lcd.Get_Display_Height());      
 
+    Serial.println("X: ");
+    Serial.print(p.x);
+    Serial.println("Y: ");
+    Serial.print(p.y);
+    Serial.println("RELAY: ");
+    Serial.print(relaystate1);
+    Serial.println();
+
 		//===============in dashboard -> main menu====================
 		if (is_pressed(0, 180, 64, 240, p.x, p.y) && page =='0'){        
-				//button goto main menu (page 1) - pressed
-				my_lcd.Set_Draw_color(55, 55, 55);
-				my_lcd.Fill_Rectangle(320, 240, 246, 208);  
-				show_string("->", 270, 220, 2, WHITE, BLACK, 2);          
-				delay(200);
-				page = '0';
-				my_lcd.Set_Draw_color(0, 255, 255);
-				my_lcd.Fill_Rectangle(320, 240, 246, 208); 
-				show_string("->", 270, 220, 2, BLACK, BLACK, 2);
+      //button goto main menu (page 1) - pressed
+      page = '1';      
+      iteration = 0;
+      my_lcd.Set_Draw_color(55, 55, 55);
+      my_lcd.Fill_Rectangle(320, 240, 246, 208);  
+      show_string("->", 270, 220, 2, WHITE, BLACK, 2);     
+      draw_loading_screen();     				            
+      delay(500);
+      return;
+    }     
+    if (is_pressed(0, 180, 64, 240, p.x, p.y) && page =='1'){        
+      //button goto main menu (page 1) - pressed
+      page = '2';      
+      iteration = 0;
+      my_lcd.Set_Draw_color(55, 55, 55);
+      my_lcd.Fill_Rectangle(320, 240, 246, 208);  
+      show_string("->", 270, 220, 2, WHITE, BLACK, 2);       
+      draw_loading_screen();   				
+      delay(500);
+      return;      
+		} 
+    if (is_pressed(0, 180, 64, 240, p.x, p.y) && page =='2'){        
+      //button goto main menu (page 1) - pressed
+      page = '0';      
+      iteration = 0;
+      my_lcd.Set_Draw_color(55, 55, 55);
+      my_lcd.Fill_Rectangle(320, 240, 246, 208);  
+      show_string("->", 270, 220, 2, WHITE, BLACK, 2);       
+      draw_loading_screen();   				
+      delay(500);
+      return;      
+		}  
+    if (is_pressed(0, 0, 60, 80, p.x, p.y) && page =='1'){        
+      //button goto main menu (page 1) - pressed
+      page = '0';      
+      iteration = 0;
+      my_lcd.Set_Draw_color(55, 55, 55);
+      my_lcd.Fill_Rectangle(74, 240, 0, 208);    
+      show_string("<-", 24, 220, 2, WHITE, BLACK, 2);      
+      draw_loading_screen();   				
+      delay(500);
+      return;      
 		}   
+    // Control Page
+    // Comp1
+    if (is_pressed(180, 20, 240, 70, p.x, p.y) && page =='2' && relaystate1 == 1 && !is_eco_active) {
+      relaystate1 = 0;
+      iteration = 0;
+      draw_loading_process();
+      delay(500);
+      return;
+    } else if (is_pressed(180, 20, 240, 70, p.x, p.y) && page =='2' && relaystate1 == 0 && !is_eco_active) {      
+      relaystate1 = 1;
+      iteration = 0;
+      draw_loading_process();
+      delay(500);
+      return;
+    }
+    // Comp2
+    if (is_pressed(140, 20, 170, 70, p.x, p.y) && page =='2' && relaystate2 == 1 && !is_eco_active) {
+      relaystate2 = 0;
+      iteration = 0;
+      draw_loading_process();
+      delay(500);
+      return;
+    } else if (is_pressed(140, 20, 170, 70, p.x, p.y) && page =='2' && relaystate2 == 0 && !is_eco_active) {      
+      relaystate2 = 1;
+      iteration = 0;
+      draw_loading_process();
+      delay(500);
+      return;
+    }
+    // Fan Evap
+    if (is_pressed(70, 20, 100, 95, p.x, p.y) && page =='2' && relaystate3 == 1) {
+      relaystate3 = 0;
+      iteration = 0;
+      draw_loading_process();
+      delay(500);
+      return;
+    } else if (is_pressed(70, 20, 95, 70, p.x, p.y) && page =='2' && relaystate3 == 0) {      
+      relaystate3 = 1;
+      iteration = 0;
+      draw_loading_process();
+      delay(500);
+      return;
+    }
+    // Eco
+    if (is_pressed(20, 15, 60, 70, p.x, p.y) && page =='2' && is_eco_active) {
+      is_eco_active = !is_eco_active;
+      iteration = 0;
+      draw_loading_process();
+      delay(500);
+      return;
+    } else if (is_pressed(20, 15, 60, 70, p.x, p.y) && page =='2' && !is_eco_active) {      
+      is_eco_active = !is_eco_active;
+      iteration = 0;
+      draw_loading_process();
+      delay(500);
+      return;
+    }
 	} 	
-
-	// Serial.println();
-	// Serial.print("PAGE: ");
-	// Serial.print(page);
-	// Serial.println();
-	// Serial.print("P.X: ");
-	// Serial.print(p.x);
-	// Serial.println();
-	// Serial.print("P.Y: ");
-	// Serial.print(p.y);
-	// Serial.println();
-	// Serial.print("P.Z: ");
-	// Serial.print(p.z);
-
 }
