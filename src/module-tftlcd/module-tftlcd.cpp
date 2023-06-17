@@ -217,22 +217,22 @@ void draw_monitoring_screen() {
   my_lcd.Set_Draw_color(220, 255, 255);
   my_lcd.Fill_Rectangle(252, 100, 314, 132);
   show_string("0", 260, 108, 2, BLACK, BLACK, 1);
-  show_string("T8 (C)", 256, 134, 1, WHITE, BLACK, 1);
+  show_string("T9 (C)", 256, 134, 1, WHITE, BLACK, 1);
   // T9 ---- 4
   my_lcd.Set_Draw_color(220, 255, 255);
   my_lcd.Fill_Rectangle(4, 148, 68, 180);
   show_string("0", 12, 156, 2, BLACK, BLACK, 1);
-  show_string("T9 (C)", 9, 182, 1, WHITE, BLACK, 1);
+  show_string("T10 (C)", 9, 182, 1, WHITE, BLACK, 1);
   // T10
   my_lcd.Set_Draw_color(220, 255, 255);
   my_lcd.Fill_Rectangle(87, 148, 151, 180);
   show_string("0", 95, 156, 2, BLACK, BLACK, 1);
-  show_string("T10 (C)", 92, 182, 1, WHITE, BLACK, 1);
+  show_string("T11 (C)", 92, 182, 1, WHITE, BLACK, 1);
   // T11
   my_lcd.Set_Draw_color(220, 255, 255);
   my_lcd.Fill_Rectangle(170, 148, 234, 180);
   show_string("0", 178, 156, 2, BLACK, BLACK, 1);
-  show_string("T11 (C)", 176, 182, 1, WHITE, BLACK, 1);
+  show_string("T12 (C)", 176, 182, 1, WHITE, BLACK, 1);
   // PT1
   my_lcd.Set_Draw_color(220, 255, 255);
   my_lcd.Fill_Rectangle(252, 148, 314, 180);
@@ -278,7 +278,7 @@ void draw_control_screen()
     my_lcd.Set_Draw_color(220, 255, 255);
     my_lcd.Fill_Rectangle(252, 24, 314, 56);
     show_string("0", 260, 32, 2, BLACK, BLACK, 1);
-    show_string("I4 (A)", 264, 60, 1, WHITE, BLACK, 1);
+    show_string("I3 (A)", 264, 60, 1, WHITE, BLACK, 1);
 
     my_lcd.Set_Draw_color(0, 255, 0);
     my_lcd.Fill_Rectangle(4, 72, 100, 105);
@@ -346,6 +346,26 @@ void loopLCD() {
 	const char* char_uptime = calculatedUptime.c_str();
   const char* char_charging = calculatedCharging.c_str();
   const char* char_pressure1 = senseTemperature6.c_str();
+
+  //
+  const char* char_temperature1 = senseTemperature1.c_str();
+  const char* char_temperature2 = senseTemperature2.c_str();
+  const char* char_temperature3 = senseTemperature3.c_str();
+  const char* char_temperature4 = senseTemperature4.c_str();
+  const char* char_temperature5 = senseTemperature5.c_str();
+  const char* char_temperature6 = senseTemperature6.c_str();
+  const char* char_temperature7 = senseTemperature7.c_str();
+  const char* char_temperature9 = senseTemperature9.c_str();
+  const char* char_temperature10 = senseTemperature10.c_str();
+  const char* char_temperature11 = senseTemperature11.c_str();
+  const char* char_temperature12 = senseTemperature12.c_str();
+  const char* char_sensePressure1 = sensePT1.c_str();
+  const char* char_sensePressure2 = sensePT2.c_str();
+  const char* char_sensePressure3 = sensePT3.c_str();
+  const char* char_sensePressure4 = sensePT4.c_str();
+  const char* char_senseCurrent1 = String(senseCurrent1.c_str());
+  const char* char_senseCurrent2 = String(senseCurrent2.c_str());
+  const char* char_senseCurrent3 = String(senseCurrent3.c_str());
 
 	uint16_t i;
   digitalWrite(13, HIGH);
@@ -418,7 +438,92 @@ void loopLCD() {
     show_string(char_charging, 52, 200, 1, WHITE, BLACK, 1);
 	} 
 
+  if (page == '1' && iteration == 1) {
+    // T1 --- 1       
+    my_lcd.Set_Draw_color(220, 255, 255);
+    my_lcd.Fill_Rectangle(4, 4, 68, 36);
+    show_string(char_temperature1, 12, 12, 2, BLACK, BLACK, 1);
+    // T2
+    my_lcd.Set_Draw_color(220, 255, 255);
+    my_lcd.Fill_Rectangle(87, 4, 151, 36);
+    show_string(char_temperature2, 95, 12, 2, BLACK, BLACK, 1);
+    // T3
+    my_lcd.Set_Draw_color(220, 255, 255);
+    my_lcd.Fill_Rectangle(170, 4, 234, 36);
+    show_string(char_temperature3, 178, 12, 2, BLACK, BLACK, 1);
+    // T4
+    my_lcd.Set_Draw_color(220, 255, 255);
+    my_lcd.Fill_Rectangle(252, 4, 314, 36);
+    show_string(char_temperature4, 260, 12, 2, BLACK, BLACK, 1);
+    // T5 --- 2
+    my_lcd.Set_Draw_color(220, 255, 255);
+    my_lcd.Fill_Rectangle(4, 52, 68, 84);
+    show_string(char_temperature5, 12, 60, 2, BLACK, BLACK, 1);
+    // T6
+    my_lcd.Set_Draw_color(220, 255, 255);
+    my_lcd.Fill_Rectangle(87, 52, 151, 84);
+    show_string(char_temperature6, 95, 60, 2, BLACK, BLACK, 1);
+    // T7
+    my_lcd.Set_Draw_color(220, 255, 255);
+    my_lcd.Fill_Rectangle(170, 52, 234, 84);
+    show_string(char_temperature7, 178, 60, 2, BLACK, BLACK, 1);
+    // Current 1
+    my_lcd.Set_Draw_color(220, 255, 255);
+    my_lcd.Fill_Rectangle(252, 52, 314, 84);
+    show_string(char_senseCurrent1, 260, 60, 2, BLACK, BLACK, 1);
+    // Current 2 --- 3
+    my_lcd.Set_Draw_color(220, 255, 255);
+    my_lcd.Fill_Rectangle(4, 100, 68, 132);
+    show_string(char_senseCurrent2, 12, 108, 2, BLACK, BLACK, 1);
+    // TH
+    my_lcd.Set_Draw_color(220, 255, 255);
+    my_lcd.Fill_Rectangle(87, 100, 151, 132);
+    show_string(char_temperatureInside, 95, 108, 2, BLACK, BLACK, 1);
+    // HUMID
+    my_lcd.Set_Draw_color(220, 255, 255);
+    my_lcd.Fill_Rectangle(170, 100, 234, 132);
+    show_string(char_senseHumid, 178, 108, 2, BLACK, BLACK, 1);
+    // T8
+    my_lcd.Set_Draw_color(220, 255, 255);
+    my_lcd.Fill_Rectangle(252, 100, 314, 132);
+    show_string(char_temperature9, 260, 108, 2, BLACK, BLACK, 1);
+    // T9 ---- 4
+    my_lcd.Set_Draw_color(220, 255, 255);
+    my_lcd.Fill_Rectangle(4, 148, 68, 180);
+    show_string(char_temperature9, 12, 156, 2, BLACK, BLACK, 1);
+    // T10
+    my_lcd.Set_Draw_color(220, 255, 255);
+    my_lcd.Fill_Rectangle(87, 148, 151, 180);
+    show_string(char_temperature9, 95, 156, 2, BLACK, BLACK, 1);
+    // T11
+    my_lcd.Set_Draw_color(220, 255, 255);
+    my_lcd.Fill_Rectangle(170, 148, 234, 180);
+    show_string(char_temperature9, 178, 156, 2, BLACK, BLACK, 1);
+    // PT1
+    my_lcd.Set_Draw_color(220, 255, 255);
+    my_lcd.Fill_Rectangle(252, 148, 314, 180);
+    show_string(char_sensePressure1, 260, 156, 2, BLACK, BLACK, 1);
+  }
+
   if (page == '2' && iteration == 1) {
+    // lanjutan monitoring
+    my_lcd.Set_Draw_color(220, 255, 255);
+    my_lcd.Fill_Rectangle(4, 24, 68, 56);
+    show_string(char_sensePressure2, 12, 32, 2, BLACK, BLACK, 1);
+
+    my_lcd.Set_Draw_color(220, 255, 255);
+    my_lcd.Fill_Rectangle(87, 24, 151, 56);
+    show_string(char_sensePressure3, 95, 32, 2, BLACK, BLACK, 1);
+
+    my_lcd.Set_Draw_color(220, 255, 255);
+    my_lcd.Fill_Rectangle(170, 24, 234, 56);
+    show_string(char_sensePressure4, 178, 32, 2, BLACK, BLACK, 1);
+
+    my_lcd.Set_Draw_color(220, 255, 255);
+    my_lcd.Fill_Rectangle(252, 24, 314, 56);
+    show_string(char_senseCurrent3, 260, 32, 2, BLACK, BLACK, 1);
+
+    // kontrol
     if (relaystate1 == 0) {
       my_lcd.Set_Draw_color(255, 0, 0);
       my_lcd.Fill_Rectangle(4, 72, 100, 105);
@@ -539,10 +644,10 @@ void loopLCD() {
       delay(500);
       return;
     } else if (is_pressed(180, 20, 240, 70, p.x, p.y) && page =='2' && relaystate1 == 0 && !is_eco_active) {      
-      relaystate1 = 1;
-      iteration = 0;
       draw_loading_process();
-      delay(500);
+      delay(60000);
+      relaystate1 = 1;
+      iteration = 0;    
       return;
     }
     // Comp2
@@ -550,27 +655,27 @@ void loopLCD() {
       relaystate2 = 0;
       iteration = 0;
       draw_loading_process();
-      delay(500);
+      delay(500); 
       return;
     } else if (is_pressed(140, 20, 170, 70, p.x, p.y) && page =='2' && relaystate2 == 0 && !is_eco_active) {      
-      relaystate2 = 1;
-      iteration = 0;
       draw_loading_process();
-      delay(500);
+      delay(60000);
+      relaystate2 = 1;
+      iteration = 0;    
       return;
     }
     // Fan Evap
     if (is_pressed(70, 20, 100, 95, p.x, p.y) && page =='2' && relaystate3 == 1) {
+      draw_loading_process();
+      delay(5000);
       relaystate3 = 0;
       iteration = 0;
-      draw_loading_process();
-      delay(500);
       return;
     } else if (is_pressed(70, 20, 95, 70, p.x, p.y) && page =='2' && relaystate3 == 0) {      
       relaystate3 = 1;
-      iteration = 0;
+      iteration = 0;    
       draw_loading_process();
-      delay(500);
+      delay(500);  
       return;
     }
     // Eco

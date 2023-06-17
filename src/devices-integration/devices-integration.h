@@ -7,8 +7,12 @@
 #include "sensor-temperature/sensor-temperature.h"
 #include "sensor-current1/sensor-current1.h"
 #include "sensor-current2/sensor-current2.h"
+#include "sensor-current3/sensor-current3.h"
 #include "sensor-humidity/sensor-humidity.h"
 #include "sensor-pressure1/sensor-pressure1.h"
+#include "sensor-pressure2/sensor-pressure2.h"
+#include "sensor-pressure3/sensor-pressure3.h"
+#include "sensor-pressure4/sensor-pressure4.h"
 
 // modules
 #include "module-buzzer/module-buzzer.h"

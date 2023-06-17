@@ -34,7 +34,7 @@ void setupMicrosd() {
     // Serial.println(F("open failed"));
     return;
   }
-  myFile.println("Time_Day, Time_Date, Time_Clock, SenseT1, SenseT2, SenseT3, SenseT4, SenseT5, SenseT6, SenseT7, SenseT8, SenseTH1, SenseRH, SenseCurrent1, SenseCurrent2, voltage, COP, Power, Uptime, PCMFreezingPoint, ChargeTime, Charging, RelayStatus, sensePressure1"); // SD Card .CSV header row  
+  myFile.println("Time_Day, Time_Date, Time_Clock, SenseT1, SenseT2, SenseT3, SenseT4, SenseT5, SenseT6, SenseT7, SenseT8, SenseTH1, SenseRH, SenseCurrent1, SenseCurrent2, COP, Power, Uptime, ChargeTime, Charging, senseT9, senseT10, senseT11, senseT12, mentahan_sensePT1, mentahan_sensePT2, mentahan_sensePT3, mentahan_sensePT4"); // SD Card .CSV header row  
   // Serial.print(F("opened: "));
   // Serial.println(fileName);
   myFile.close();
@@ -73,23 +73,31 @@ void writeMonitorSDCard() {
   fullData.concat(",");
   fullData.concat(senseCurrent2);
   fullData.concat(",");
-  fullData.concat(senseVoltage);
-  fullData.concat(",");
   fullData.concat(calculatedCOP);
   fullData.concat(",");
   fullData.concat(calculatedPower);
   fullData.concat(",");
   fullData.concat(calculatedUptime);
   fullData.concat(",");
-  fullData.concat(calculatedFP);
-  fullData.concat(",");
   fullData.concat(calculatedPCM1Pickload);
   fullData.concat(",");
   fullData.concat(calculatedCharging);
   fullData.concat(",");
-  fullData.concat(String(relaystate1));
+  fullData.concat(senseTemperature9);
   fullData.concat(",");
-  fullData.concat(String(sensePressure));
+  fullData.concat(senseTemperature10);
+  fullData.concat(",");
+  fullData.concat(senseTemperature11);
+  fullData.concat(",");
+  fullData.concat(senseTemperature12);
+  fullData.concat(",");
+  fullData.concat(sensePT1);
+  fullData.concat(",");
+  fullData.concat(sensePT2);
+  fullData.concat(",");
+  fullData.concat(sensePT3);
+  fullData.concat(",");
+  fullData.concat(sensePT4);
 
   // Testing & send data in serial communication to esp32
   Serial.println(fullData);

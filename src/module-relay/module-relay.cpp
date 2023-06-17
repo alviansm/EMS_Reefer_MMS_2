@@ -18,7 +18,6 @@ void setupRelay() {
 }
 
 void relayOn1() {
-  delay(60000);
   relaystate1 = 1;
   digitalWrite(relay_1, HIGH);
   return;
@@ -31,7 +30,6 @@ void relayOff1() {
 }
 
 void relayOn2() {
-  delay(60000);
   relaystate2 = 1;
   digitalWrite(relay_2, HIGH);
   return;
@@ -44,7 +42,6 @@ void relayOff2() {
 }
 
 void relayOn3() {
-  delay(5000);
   relaystate3 = 1;
   digitalWrite(relay_3, HIGH);
   return;

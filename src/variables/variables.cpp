@@ -18,8 +18,17 @@ String senseTemperatureHumid = "";
 String senseHumid = "";
 float senseCurrent1 = 0;
 float senseCurrent2 = 0;
+float senseCurrent3 = 0;
 String senseVoltage = "220.00";
 String sensePressure = "";
+String senseTemperature9 = "";
+String senseTemperature10 = "";
+String senseTemperature11 = "";
+String senseTemperature12 = "";
+String sensePT1 = "";
+String sensePT2 = "";
+String sensePT3 = "";
+String sensePT4 = "";
 
 // ==== RELAY STATE VARIABELS ====
 int relaystate1 = 1;
