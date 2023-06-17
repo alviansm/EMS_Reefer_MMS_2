@@ -363,9 +363,9 @@ void loopLCD() {
   const char* char_sensePressure2 = sensePT2.c_str();
   const char* char_sensePressure3 = sensePT3.c_str();
   const char* char_sensePressure4 = sensePT4.c_str();
-  const char* char_senseCurrent1 = String(senseCurrent1.c_str());
-  const char* char_senseCurrent2 = String(senseCurrent2.c_str());
-  const char* char_senseCurrent3 = String(senseCurrent3.c_str());
+  const char* char_senseCurrent1 = senseCurrent1.c_str();
+  const char* char_senseCurrent2 = senseCurrent2.c_str();
+  const char* char_senseCurrent3 = senseCurrent3.c_str();
 
 	uint16_t i;
   digitalWrite(13, HIGH);

@@ -2,8 +2,10 @@
 
 void completeSensorSetup() {
     setupTemperatureSensor();
+    setupTemperatureSensor1();
     setupCurrentSensor1();
     setupCurrentSensor2();
+    setupCurrentSensor3();
     setupHumiditySensor();
 }
 
@@ -32,6 +34,7 @@ void calculationLoop() {
 void puttingThingsTogether() {
     loopTime();
     loopTemperatureSensors();
+    loopTemperatureSensors1();
     loopHumiditySensor();
     loopCurrentSensor1();
     loopCurrentSensor2();

@@ -11,5 +11,5 @@ void loopCurrentSensor2() {
     float Irms2 = (emon2.calcIrms(1480));
 
     // Assign to global sensing variables
-    senseCurrent2 = Irms2;
+    senseCurrent2 = String(Irms2);
 }

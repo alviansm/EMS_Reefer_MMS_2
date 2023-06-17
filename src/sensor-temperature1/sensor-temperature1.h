@@ -5,7 +5,7 @@
 #include <DallasTemperature.h> // DS18B20
 
 void printAddress(DeviceAddress deviceAddress);
-void setupTemperatureSensor();
-void loopTemperatureSensors();
+void setupTemperatureSensor1();
+void loopTemperatureSensors1();
 
 #endif

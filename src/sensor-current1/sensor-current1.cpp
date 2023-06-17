@@ -8,8 +8,8 @@ void setupCurrentSensor1() {
 }
 
 void loopCurrentSensor1() {
-    float Irms = (emon1.calcIrms(1480));
+    int Irms = (emon1.calcIrms(1480));
 
     // Assign to global sensing variables
-    senseCurrent1 = Irms;
+    senseCurrent1 = String(Irms);
 }

@@ -36,7 +36,7 @@ void calculateCOP() {
 }
 
 void calculatePower() {
-  calculatedPower = String(String((senseCurrent2)*220.00*0.80).toInt());
+  calculatedPower = String(String((senseCurrent2.toFloat())*220.00*0.80).toInt());
 }
 
 void calculatePCM1PickLoad() {

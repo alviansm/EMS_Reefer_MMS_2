@@ -5,6 +5,7 @@
 
 // sensors
 #include "sensor-temperature/sensor-temperature.h"
+#include "sensor-temperature1/sensor-temperature1.h"
 #include "sensor-current1/sensor-current1.h"
 #include "sensor-current2/sensor-current2.h"
 #include "sensor-current3/sensor-current3.h"
