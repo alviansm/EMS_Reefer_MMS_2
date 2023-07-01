@@ -85,28 +85,28 @@ void loopTemperatureSensors() {
       }
     }
 
-    if ((i == 0) && (tempC != -127) && ((tempC - senseTemperature1.toInt() >= -5) && (tempC - senseTemperature1.toInt() <= 5))) {
+    if ((i == 0) && (tempC != -127) && ((tempC - senseTemperature1.toInt() >= -12) && (tempC - senseTemperature1.toInt() <= 12))) {
       senseTemperature1 = String(tempC);
     }
-    if ((i == 1) && (tempC != -127) && ((tempC - senseTemperature2.toInt() >= -5) && (tempC - senseTemperature2.toInt() <= 5))) {
+    if ((i == 1) && (tempC != -127) && ((tempC - senseTemperature2.toInt() >= -12) && (tempC - senseTemperature2.toInt() <= 12))) {
       senseTemperature2 = String(tempC);
     }
-    if ((i == 2) && (tempC != -127) && ((tempC - senseTemperature3.toInt() >= -5) && (tempC - senseTemperature3.toInt() <= 5))) {
+    if ((i == 2) && (tempC != -127) && ((tempC - senseTemperature3.toInt() >= -12) && (tempC - senseTemperature3.toInt() <= 12))) {
       senseTemperature3 = String(tempC);
     }
-    if ((i == 3) && (tempC != -127) && ((tempC - senseTemperature4.toInt() >= -5) && (tempC - senseTemperature4.toInt() <= 5))) {
+    if ((i == 3) && (tempC != -127) && ((tempC - senseTemperature4.toInt() >= -12) && (tempC - senseTemperature4.toInt() <= 12))) {
       senseTemperature4 = String(tempC);
     }
-    if ((i == 4) && (tempC != -127) && ((tempC - senseTemperature5.toInt() >= -5) && (tempC - senseTemperature5.toInt() <= 5))) {
+    if ((i == 4) && (tempC != -127) && ((tempC - senseTemperature5.toInt() >= -12) && (tempC - senseTemperature5.toInt() <= 12))) {
       senseTemperature5 = String(tempC);
     }
-    if ((i == 5) && (tempC != -127) && ((tempC - senseTemperature6.toInt() >= -5) && (tempC - senseTemperature6.toInt() <= 5))) {
+    if ((i == 5) && (tempC != -127) && ((tempC - senseTemperature6.toInt() >= -12) && (tempC - senseTemperature6.toInt() <= 12))) {
       senseTemperature6 = String(tempC);
     }
-    if ((i == 6) && (tempC != -127) && ((tempC - senseTemperature7.toInt() >= -5) && (tempC - senseTemperature7.toInt() <= 5))) {
+    if ((i == 6) && (tempC != -127) && ((tempC - senseTemperature7.toInt() >= -12) && (tempC - senseTemperature7.toInt() <= 12))) {
       senseTemperature7 = String(tempC);
     }
-    if ((i == 7) && (tempC != -127) && ((tempC - senseTemperature8.toInt() >= -5) && (tempC - senseTemperature8.toInt() <= 5))) {
+    if ((i == 7) && (tempC != -127) && ((tempC - senseTemperature8.toInt() >= -12) && (tempC - senseTemperature8.toInt() <= 12))) {
       senseTemperature8 = String(tempC);
     }
 

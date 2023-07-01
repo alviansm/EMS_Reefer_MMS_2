@@ -490,15 +490,15 @@ void loopLCD() {
     // T9 ---- 4
     my_lcd.Set_Draw_color(220, 255, 255);
     my_lcd.Fill_Rectangle(4, 148, 68, 180);
-    show_string(char_temperature9, 12, 156, 2, BLACK, BLACK, 1);
+    show_string(char_temperature10, 12, 156, 2, BLACK, BLACK, 1);
     // T10
     my_lcd.Set_Draw_color(220, 255, 255);
     my_lcd.Fill_Rectangle(87, 148, 151, 180);
-    show_string(char_temperature9, 95, 156, 2, BLACK, BLACK, 1);
+    show_string(char_temperature11, 95, 156, 2, BLACK, BLACK, 1);
     // T11
     my_lcd.Set_Draw_color(220, 255, 255);
     my_lcd.Fill_Rectangle(170, 148, 234, 180);
-    show_string(char_temperature9, 178, 156, 2, BLACK, BLACK, 1);
+    show_string(char_temperature12, 178, 156, 2, BLACK, BLACK, 1);
     // PT1
     my_lcd.Set_Draw_color(220, 255, 255);
     my_lcd.Fill_Rectangle(252, 148, 314, 180);

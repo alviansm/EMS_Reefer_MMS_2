@@ -1,6 +1,6 @@
 #include "sensor-pressure1.h"
 
-const int pressureInput = A5; //select the analog input pin for the pressure transducer
+const int pressureInput = A6; //select the analog input pin for the pressure transducer
 const int pressureZero = 102; //analog reading of pressure transducer at 0psi
 const int pressureMax = 817; //analog reading of pressure transducer at 100psi
 const int pressuretransducermaxPSI = 500; //psi value of transducer being used
