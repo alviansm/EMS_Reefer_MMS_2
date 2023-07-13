@@ -58,3 +58,6 @@ bool is_eco_active = false;
 
 // ==== Nextion Display Variables ====
 int currentNextionPage = 0;
+
+// ==== MQTT Message ====
+String mqtt_received_message;

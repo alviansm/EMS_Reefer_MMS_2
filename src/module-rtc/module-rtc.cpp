@@ -29,7 +29,7 @@ void setupRtc() {
   // Comment out below line once you set the date & time.
   // Following line sets the RTC with an explicit date & time
   // for example to set January 13 2022 at 12:56 you would call:
-  // rtc.set(0, 53, 18, 3, 16, 5, 23);
+  // rtc.set(0, 45, 12, 5, 13, 7, 23);
   // rtc.set(second, minute, hour, dayOfWeek, dayOfMonth, month, year)
   // set day of week (1=Sunday, 7=Saturday)
 

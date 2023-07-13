@@ -112,7 +112,7 @@ void writeMonitorSDCard() {
       myFile.close();
     } else {
     // if the file didn't open, print an error:
-    buzzerSOSFunc();
+    // buzzerSOSFunc();
     // Serial.print("error writing ");
     // Serial.print(fileName);
     // Serial.println();

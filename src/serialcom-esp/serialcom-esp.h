@@ -8,5 +8,6 @@
 
 void setupESP32();
 void sendDataToESP();
+void receiveDataFromESP();
 
 #endif

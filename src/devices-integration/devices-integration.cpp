@@ -29,12 +29,14 @@ void calculationLoop() {
     calculateUptime();
     calculateChargeTime();
     ecoActivation();
+    mqtt_switch();
+    run_setpoint_temperature();
 }
 
 void puttingThingsTogether() {
     loopTime();
     loopTemperatureSensors();
-    loopTemperatureSensors1();
+    // loopTemperatureSensors1();
     loopHumiditySensor();
     loopCurrentSensor1();
     loopCurrentSensor2();
@@ -46,6 +48,7 @@ void puttingThingsTogether() {
     relayStandBy();
     writeMonitorSDCard();
     sendDataToESP();
+    receiveDataFromESP();
     // updateNextionDashboard();
     // updateNextionDetails();
 }

@@ -52,5 +52,6 @@ extern String calculatedCharging;
 extern String fullData;
 extern int currentNextionPage;
 extern bool is_eco_active;
+extern String mqtt_received_message;
 
 #endif

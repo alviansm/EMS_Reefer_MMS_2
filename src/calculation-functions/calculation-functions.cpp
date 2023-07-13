@@ -78,3 +78,60 @@ void ecoActivation() {
     }
   }  
 }
+
+void mqtt_switch() {
+  // switch compressor
+  Serial.println("Message");
+  Serial.println(mqtt_received_message);  
+  if (String(mqtt_received_message) == "Status: Kompresor") {
+    if (relaystate1 == 0) {
+      delay(30000);
+      relaystate1 = 1;
+    } else if (relaystate1 == 1) {
+      delay(30000);
+      relaystate1 = 0;
+    }
+  }
+
+  if (String(mqtt_received_message) == "Status: Evap Fan") {
+    if (relaystate2 == 0) {
+      delay(10000);
+      relaystate2 = 1;
+    } else if (relaystate2 == 1) {
+      delay(10000);
+      relaystate2 = 0;
+    }
+  }
+
+  if (String(mqtt_received_message) == "Status: Eco") {
+    if (is_eco_active == 0) {
+      delay(10000);
+      is_eco_active = 1;
+    } else if (is_eco_active == 1) {
+      delay(10000);
+      is_eco_active = 0;
+    }
+  }
+
+  // switch evaporator fan
+
+  // switch eco mode
+}
+
+void run_setpoint_temperature() {
+  // int setpoint;
+  // setpoint = -20;
+  // setpoint = mqtt_received_message.toInt();
+  // Serial.println('Setpoint: ' + setpoint);
+  // if ((setpoint > -20) && (setpoint < 20)) {
+  //   if (senseTemperatureHumid.toInt() == setpoint) {
+  //     delay(30000);
+  //     relaystate1 = 1;
+  //   }
+  // }
+
+  // if (((abs(setpoint)-abs(senseTemperatureHumid.toInt())) == 10)) {
+  //   delay(30000);
+  //   relaystate1 = 1;
+  // }
+}
